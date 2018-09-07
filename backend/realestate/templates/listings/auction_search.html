@@ -1,0 +1,24 @@
+{% extends "listings/base_event_search.html" %}
+
+{% load cms_tags %}
+
+{% block title %}
+    Upcoming {% if request.GET.listing_type %}{{ request.GET.listing_type|title }} {% endif %}Auctions | {% get_setting "WAGTAIL_SITE_NAME" %}
+{% endblock %}
+
+{% block search_title %} Upcoming Auctions {% endblock search_title %}
+
+{% block listing_list %}
+    {% for listing in listings %}
+        {% ifchanged listing.auction_date.day %}
+            <div class="cell day-header">
+                <span class="ion-android-calendar color-primary"></span>
+                <span class="color-primary">{{ listing.auction_date|date:"l" }}</span>
+                <span>{{ listing.auction_date|date:"d F" }}</span>
+                {% include "includes/print_btn.html" %}
+            </div>
+        {% endifchanged %}
+
+        {% include 'includes/listings/listing_card.html' with class="listing-scroll-add" %}
+    {% endfor %}
+{% endblock listing_list %}

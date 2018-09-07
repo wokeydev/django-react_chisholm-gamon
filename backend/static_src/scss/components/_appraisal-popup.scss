@@ -1,0 +1,68 @@
+.appraisal-popup {
+  position: absolute;
+  margin: 0;
+  color: $white;
+  display: none;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  bottom: 1rem;
+  right: 1rem;
+
+  .close-button {
+    top: 0;
+    right: 10px;
+  }
+
+  form {
+    display: flex;
+
+    input {
+      background: transparent;
+      margin: 0 10px 10px 0;
+      border-color: $white;
+      color: #fff;
+      width: 100%;
+
+      &:focus {
+        background: transparent;
+        border-color: $primary-color;
+        box-shadow: none;
+      }
+
+      &::placeholder {
+        color: #fff;
+      }
+    }
+    button {
+      padding: 0 10px;
+      margin: 0 0 10px 0;
+    }
+  }
+
+  @include breakpoint(medium down) {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    background: $black;
+    padding: 10px 25px 5px 25px;
+  }
+
+  @include breakpoint(small only) {
+    form {
+      flex-wrap: wrap;
+      
+      input, button {
+        height: 2rem;
+      }
+      input:nth-of-type(1) {
+        margin-right: 0;
+      }
+      input:nth-of-type(2) {
+        width: calc(100% - 60px)
+      }
+    }
+    .close-button {
+      top: -5px;
+      right: 4px;
+    }
+  }
+}

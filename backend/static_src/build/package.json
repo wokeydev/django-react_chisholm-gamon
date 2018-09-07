@@ -1,0 +1,24 @@
+{
+  "name": "chisholmGamon",
+  "description": "Node requirements for the ChisholmGamon website 2018",
+  "devDependencies": {
+    "chart.js": "^2.7.2",
+    "echo-js": "^1.7.3",
+    "gulp": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-concat": "latest",
+    "gulp-notify": "^3.1.0",
+    "gulp-rename": "latest",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "latest",
+    "gulp-uglify": "latest",
+    "infinite-scroll": "^3.0.3",
+    "ionicons-npm": "^2.0.1",
+    "js-cookie": "^2.2.0",
+    "motion-ui": "^1.2.3"
+  },
+  "dependencies": {
+    "foundation-sites": "^6.4.4-rc1",
+    "notify-send": "^0.1.2"
+  }
+}

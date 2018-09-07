@@ -1,0 +1,76 @@
+.link-block {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  @include breakpoint(large) {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  // link
+  .link {
+    margin-bottom: 7rem;
+    @include breakpoint(large) {
+      margin-bottom: 2rem;
+    }
+    .link-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      @include breakpoint(large) {
+        font-size: 1.5rem;
+      }
+    }
+    a.link-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      background-color: $black;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        height: auto;
+        top: 100%;
+        left: 50%;
+        padding: 1rem;
+        transform: translate(-50%,0);
+        width: 100%;
+        color: $white;
+        font-weight: 500;
+        font-size: 1rem;
+        background-color: $primary-color;
+        @include transition(opacity 0.2s ease-in-out);
+        @include breakpoint(large) {
+          opacity: 0;
+          height: 100%;
+          top: 50%;
+          left: 50%;
+          padding: 2rem;
+          transform: translate(-50%,-50%);
+          font-size: 1.5rem;
+          background-color: rgba($primary-color,0.75);
+        }
+        i {
+          margin-left: 0.5rem;
+          font-size: 2rem;
+        }
+      }
+      @include breakpoint(large) {
+        &:hover span {
+          opacity: 1;
+        }
+      }
+      &.no-img {
+        background-size: 42% auto;
+      }
+    }
+  }
+
+}

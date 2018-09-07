@@ -1,0 +1,67 @@
+{% load cms_tags seo_tags %}
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>
+        {% block title %}
+            {% if self.title_tag %}
+                {{self.title_tag}}
+            {% else %}
+                {{self.title}} | {% get_setting "WAGTAIL_SITE_NAME" %}
+            {% endif %}
+        {% endblock %}
+    </title>
+    {% block meta %}{% seo_fields %}{% endblock %}
+    {% block extra_meta %}
+        <!-- Add extra meta tags here -->
+    {% endblock %}
+
+    <!-- Google Tag Manager -->
+    {% if settings.cms.ThirdPartyApiSettings.google_tag_manager %}
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{settings.cms.ThirdPartyApiSettings.google_tag_manager}}');</script>
+    {% endif %}
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Analytics -->
+    {% if settings.cms.ThirdPartyApiSettings.google_analytics %}
+    <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', '{{settings.cms.ThirdPartyApiSettings.google_analytics}}', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    {% endif %}
+    <!-- End Google Analytics -->
+
+    {% block css %}<!-- Base project CSS -->{% endblock %}
+    {% block extra_css %}
+        <!-- Add extra css here -->
+    {% endblock %}
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    {% block head_js %}<!-- Add extra JS to the head here -->{% endblock %}
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    {% if settings.cms.ThirdPartyApiSettings.google_tag_manager %}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{settings.cms.ThirdPartyApiSettings.google_tag_manager}}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    {% endif %}
+    <!-- End Google Tag Manager (noscript) -->
+
+  {% block content %}<!-- Page content --> {% endblock %}
+
+  {% block js %}<!-- Base project JS -->{% endblock %}
+  {% block body_js %}<!-- Add extra JS to the body here -->{% endblock %}
+</body>
+</html>

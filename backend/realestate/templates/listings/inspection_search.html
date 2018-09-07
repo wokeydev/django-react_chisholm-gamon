@@ -1,0 +1,42 @@
+{% extends "listings/base_event_search.html" %}
+
+{% load cms_tags %}
+
+{% block title %}
+    Upcoming {% if request.GET.listing_type %}{{ request.GET.listing_type|title }} {% endif %}Inspections | {% get_setting "WAGTAIL_SITE_NAME" %}
+{% endblock %}
+
+{% block search_title %} Open for Inspection{% endblock search_title %}
+{% block search_views %}{# Comment here to clear out the views #}{% endblock %}
+{% block listing_list %}
+    {% for inspection in inspections %}
+        {% ifchanged inspection.inspection_time.day %}
+            <div class="cell day-header">
+                <span class="ion-android-calendar color-primary"></span>
+                <span class="color-primary">{{ inspection.inspection_time|date:"l" }}</span>
+                <span>{{ inspection.inspection_time|date:"d F" }}</span>
+                {% include "includes/print_btn.html" %}
+            </div>
+        {% endifchanged %}
+
+        {% include 'includes/listings/listing_card.html' with class="listing-scroll-add" listing=inspection.listing %}
+    {% endfor %}
+{% endblock listing_list %}
+
+
+{% block paginator %}
+    {% include 'includes/listings/pagination.html' with listings=inspections %}
+    {% include 'includes/load_spinner.html' with text="Loading more great properties..." %}
+{% endblock paginator %}
+
+{% block set_locations %}
+    var locations = [
+        {% for inspection in inspections %}
+            {
+            lat: {{ inspection.listing.location.y|floatformat:6 }},
+            lng: {{ inspection.listing.location.x|floatformat:6 }},
+            info: `{% include 'includes/listings/map_card.html' with listing=inspection.listing %}`
+            }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        ]; // END var locations
+{% endblock set_locations %}

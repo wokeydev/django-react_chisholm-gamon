@@ -1,0 +1,20 @@
+// Social menus and icons
+
+.socials {
+
+  ul.menu {
+    li a {
+      font-size: 1.5rem;
+      color: $black;
+      padding: 0 0.5rem;
+      @include transition(color);
+      &:hover, &:active, &.is-active {
+        color: $primary-color;
+      }
+    }
+    li:first-of-type a {
+      padding-left: 0;
+    }
+  }
+
+}

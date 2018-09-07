@@ -1,0 +1,29 @@
+.card {
+  border-bottom: 1px solid $black;
+
+  .card-divider {
+    padding: 0 0 6px;
+  }
+  a.card-image {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    &.no-img {
+      background-color: $black;
+      img {
+        width: 42%;
+        max-width: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+  }
+  .card-section {
+    padding: 12px 0;
+  }
+}

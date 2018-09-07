@@ -1,0 +1,104 @@
+#office-index-page {
+    margin-top: 7rem;
+
+    #map {
+        height: 476px;
+    }
+    h1 {
+        margin-top: 3rem;
+        margin-bottom: 1.4rem;
+        font-size: 1.8rem;
+    }
+    .office-wrapper {
+        border: none;
+        margin: 0;
+        height: 100%;
+
+        .card-image {
+            height: 286px;
+            position: relative;
+            background-color: $black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            h2 {
+                @include centerer(true, true);
+                color: $white;
+                text-shadow: 0 0 10px $black;
+
+                @media screen and (max-width: 1200px) {
+                    & {
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+            .default-image {
+                position: absolute;
+                bottom: 50px;
+                width: 180px;
+                left: calc(50% - 90px);
+            }
+        }
+        .card-section {
+            background-color: #DBDBDB;
+            padding: 15px;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+
+            .info-row {
+                display: flex;
+                justify-content: space-between;
+            }
+            .button {
+                margin: 0;
+            }
+            .ion-email:before {
+                font-size: 32px;
+                line-height: 24px;
+            }
+        }
+        &.is-active .card-section,
+        &:hover .card-section {
+            color: $white;
+            background-color: $primary-color;
+
+            .button {
+                background-color: $white;
+                color: $primary-color;
+
+                &:hover {
+                    background-color: #ececec;
+                }
+            }
+            .ion-email {
+                color: $white;
+            }
+        }
+    }
+    .office-wrapper-mobile {
+        border: 1px solid $primary-color;
+
+        h2 {
+            margin-bottom: 0;
+        }
+        .controls {
+            background-color: $primary-color;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & > div > a {
+                font-size: 32px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        h1 {
+            text-align: center;
+        }
+    }
+}

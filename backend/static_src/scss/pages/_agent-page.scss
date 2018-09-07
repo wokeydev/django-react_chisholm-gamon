@@ -1,0 +1,323 @@
+
+
+.section-header {
+    padding-bottom: 0;
+    margin-top: 1rem;
+}
+
+  // banner
+  // ------
+  section.banner {
+    position: relative;
+
+    h1 {
+        position: absolute;
+        z-index: 3;
+        text-align: center;
+        pointer-events: none;
+        @include centerer(true, true);
+      }
+
+    background-color: $medium-gray;
+    height: 60vh;
+    @include breakpoint(medium) {
+      height: 70vh;
+    }
+    @include breakpoint(large) {
+      height: 80vh;
+    }
+
+    #agent-carousel {
+      background-color: $medium-gray;
+    }
+
+    #agent-carousel,
+    #agent-carousel .owl-item .item {
+      height: 60vh;
+      @include breakpoint(medium) {
+        height: 70vh;
+      }
+      @include breakpoint(large) {
+        height: 80vh;
+      }
+    }
+
+    #agent-carousel .owl-item .item {
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .description {
+      h2 {
+        color: $white;
+        font-size: rem-calc(30);
+        margin-bottom: 0.25rem;
+        line-height: 1;
+        @include breakpoint(medium) {
+          font-size: rem-calc(40);
+        }
+        @include breakpoint(large) {
+          font-size: rem-calc(48);
+        }
+      }
+      a.button {
+        margin-bottom: 2px;
+        display: block;
+        width: 120px;
+        margin-left: 0;
+        @include breakpoint(medium) {
+          display: inline-block;
+          width: auto;
+          margin-left: 1rem;
+        }
+      }
+    }
+
+  }
+
+.landscape-section{
+    position: relative;
+
+    .orbit-container {
+        max-height: 600px;
+    }
+
+    .orbit-slide {
+        height: initial;
+    }
+    
+    .carousel-header {
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        
+        @include vertical-center;
+    }
+
+    h1 {
+        color: $white;
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-shadow: 0px 0px 25px rgba($black, 0.8);
+
+        @include breakpoint(medium) {
+            font-size: 3rem;
+        }
+
+        @include breakpoint(large) {
+            font-size: 4rem;
+        }
+    }
+
+    .scroll-icon {
+        bottom: 20px;
+        @include horizontal-center;
+    }
+}
+
+.profile-section {
+    margin-top: 2rem;
+
+    .profile-image {
+        height: 0;
+        padding-bottom: 100%;
+    }
+
+    .profile-contacts {
+        margin: 1rem 0;
+    }
+    
+    @include breakpoint(medium up) {
+        margin-top: 4rem;
+    }
+}
+
+.agent-contact-form {
+    color: $white;
+    background: $black;
+    padding: 1rem;
+    
+    p, label,
+    input,
+    textarea  {
+        color: $white;
+    }
+
+    input,
+    textarea {
+        border-color: $white;
+        background-color: $black;
+    }
+
+    input:focus,
+    textarea:focus {
+        background-color: $black;
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+    }
+
+    #contact-us-btn {
+        
+    }
+}
+
+.contact-section {
+    @include breakpoint(small only) {
+        margin-top: 2rem;
+    }
+}
+
+.testimonials-section {
+    margin-top: 2rem;
+
+    @include breakpoint(small only) {
+        margin-bottom: 2rem;
+    }
+    
+    @include breakpoint(medium up) {
+        margin-top: 4rem;
+    }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        @include breakpoint(medium) {
+            text-align: left;
+        }
+
+        @include breakpoint(large) {
+            padding-bottom: 0px;
+            border-bottom: 1px solid $primary-color;
+        }
+    }
+}
+
+#testimonials-agentpage-carousel {
+    @include breakpoint(large) {
+        display: block !important;
+    }
+
+    .testimonial {
+        @include breakpoint(large) {
+            width: 50%;
+            float: left;
+            margin-bottom: 2rem;
+        }
+
+        @include breakpoint(1330px) {
+            width: 33%;
+
+            .testimonial-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+    }
+}
+
+.all-listing-button {
+    margin-top: 17px;
+    height: 3rem;
+    padding: 1rem;
+
+    @include breakpoint(small only) {
+        width: 100%;
+    }
+}
+
+.listing-card {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 0;
+    color: #777;
+    position: relative;
+
+    .card-section {
+        padding: 1rem;
+    }
+
+    .house-param {
+        & > ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            & > li {
+                display: inline-block;
+                margin-left: 1rem;
+            }
+        } 
+
+        .house-param-icon {
+            float: left;
+            height: 20px;
+            vertical-align: baseline;
+            width: auto;
+            max-width: initial;
+            margin-right: 0.2rem;
+        }
+    }
+
+    .house-title {
+        color: $primary-color;
+        font-size: 1.33rem;
+        line-height: 1;
+        font-weight: 300;
+    }
+
+    .house-price {
+        margin: 1rem 0;
+        font-style: italic;
+    }
+
+    .listing-agent-avatar {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+        float: left;
+    }
+
+    .listing-agent-name {
+        line-height: 40px;
+    }
+
+    .view-button {
+        margin-bottom: 2px;
+        padding: 0 1rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        float: right;
+    }
+
+    .image-box {
+        position: relative;
+    }
+
+    .solded {
+        width: 150px;
+        color: #fff;
+        background-color: transparentize($primary-color, 0.35);
+        padding: 3px 10px;
+        font-size: 2.2rem;
+        font-weight: 600;
+        text-align: center;
+        
+        @include absolute-center;
+    }
+}
+
+.listings-section {
+    // margin-top: 2rem;
+    // margin-bottom: 1rem;
+    
+    @include breakpoint(medium up) {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+}

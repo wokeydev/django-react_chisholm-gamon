@@ -1,0 +1,246 @@
+#listing-search-form {
+
+  // labels
+  label {
+    font-size: rem-calc(16);
+  }
+
+  // search fields
+  .listing-search-form-fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    // set field margins
+    & > div {
+      margin: 0;
+    }
+
+    // fields
+    select, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]) {
+      font-size: rem-calc(14);
+      padding-top: 0;
+      padding-bottom: 0;
+      height: rem-calc(52);
+      line-height: rem-calc(52);
+    }
+    .listing-type {
+      width: 100%;
+      @include breakpoint(medium) { flex-basis: 25%; }
+      @include breakpoint(large) { flex-basis: 10%; }
+      select {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='13' height='8' viewBox='0 0 13 8'><polygon points='11.76 0.25 12.5 1.07 6.25 7.75 0 1.07 0.74 0.25 6.25 6.11 11.76 0.25' style='fill: rgb%28255, 255, 255%29'></polygon></svg>");
+        background-size: 13px 8px;
+        background-color: $black;
+        border-color: $black;
+        color: $white;
+      }
+    }
+      
+    .query {
+      width: 100%;
+      @include breakpoint(medium) { flex-basis: 58%; }
+      @include breakpoint(large) { flex-basis: 28%; }
+      position: relative;
+      span.query-surrounding {
+        display: block;
+        position: absolute;
+        top: 3px;
+        right: 0;
+        label {
+          font-size: rem-calc(13);
+          padding-left: 15px;
+          position: relative;
+          cursor: pointer;
+          &:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border: solid 1px $primary-color;
+          }
+        }
+        i {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          padding: 0 0 4px 2px;
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.2s ease-in;
+        }
+        input {
+          position: absolute;
+          left: -9999px;
+        }
+        input:checked + i {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      label ~ .date-from-to {
+        margin-top: -0.8rem;
+      }
+      .date-from-to > div:nth-of-type(1) {
+        margin-right: 10px;
+      }
+    }
+
+    .bedrooms {
+      width: 49%;
+      display: none;
+      @include breakpoint(medium) { display: block; flex-basis: 15%; }
+      @include breakpoint(large) { flex-basis: 12%; }
+    }
+
+    .bathrooms {
+      width: 49%;
+      display: none;
+      @include breakpoint(medium) { display: block; flex-basis: 15%; }
+      @include breakpoint(large) { flex-basis: 12%; }
+    }
+
+    .area {
+      width: 49%;
+      display: none;
+      @include breakpoint(medium) { display: block; flex-basis: 15%; }
+      @include breakpoint(large) { flex-basis: 12%; }
+    }
+
+    .building_area {
+      width: 49%;
+      display: none;
+      @include breakpoint(medium) { display: block; flex-basis: 15%; }
+      @include breakpoint(large) { flex-basis: 12%; }
+    }
+
+    .min-price {
+      width: 49%;
+      display: none;
+      @include breakpoint(medium) { display: block; flex-basis: 15%; }
+      @include breakpoint(large) { flex-basis: 12%; }
+    }
+
+    .max-price {
+      width: 49%;
+      display: none;
+      @include breakpoint(medium) { display: block; flex-basis: 15%; }
+      @include breakpoint(large) { flex-basis: 12%; }
+    }
+
+    .listing-search-submit {
+      width: 100%;
+      @include breakpoint(medium) { flex-basis: 52%; }
+      @include breakpoint(large) { flex-basis: 10%; }
+    }
+
+
+  }
+
+  // search submit button
+  .listing-search-submit {
+    button {
+      margin-bottom: 0;
+      font-size: rem-calc(18);
+      font-weight: 600;
+      padding-top: 0;
+      padding-bottom: 0;
+      height: rem-calc(52);
+      line-height: rem-calc(52);
+    }
+  }
+
+  .listing-search-title {
+    h1 {
+      margin: 1rem 0;
+    }
+  }
+
+  // handle search form type
+  .area,
+  .building_area {
+    display: none !important;
+  }
+  .listing-search-form-fields[data-listing-type="sale"],
+  .listing-search-form-fields[data-listing-type="both"],
+  .listing-search-form-fields[data-listing-type="sold"] {
+    label[for='rent__gte'],
+    label[for='rent__lte'] {
+      display: none;
+    }
+  }
+  .listing-search-form-fields[data-listing-type="lease"] {
+    label[for='price__gte'],
+    label[for='price__lte'] {
+      display: none;
+    }
+  }
+  .listing-search-form-fields[data-listing-type="commercial"] {
+    .area,
+    .building_area {
+      display: block !important;
+    }
+    .min-price,
+    .max-price {
+      display: none !important;
+    }
+  }
+
+  // show advanced trigger
+  .show-advanced {
+    text-align: center;
+    padding: 0 1rem 0.75rem;
+    display: block;
+    width: 100%;
+    a {
+      color: $black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: rem-calc(13);
+      .hidetext {
+        display: none;
+      }
+    }
+    i {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='13' height='8' viewBox='0 0 13 8'><polygon points='11.76 0.25 12.5 1.07 6.25 7.75 0 1.07 0.74 0.25 6.25 6.11 11.76 0.25' style='fill: rgb%28235, 0, 139%29'></polygon></svg>");
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 15px;
+      height: 15px;
+      margin-right: 0.5rem;
+    }
+  }
+
+  // mobile search open state
+  &.search-is-open {
+    .bedrooms,
+    .bathrooms,
+    .area,
+    .building_area,
+    .min-price,
+    .max-price {
+      display: block;
+    }
+    .show-advanced a {
+      .hidetext {
+        display: inline;
+      }
+      .showtext {
+        display: none;
+      }
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+}

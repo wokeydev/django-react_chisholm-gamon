@@ -1,0 +1,353 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags cms_tags static %}
+{% block extra_meta %}
+    {{block.super}}
+    {% include "offices/include/structured_data.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="office-page">
+
+<div class="fullscreen-image-slider {% if self.gallery.count == 0 %}no-images{% endif %}">
+    <div class="orbit" role="region" aria-label="{{ self.office_name }}" data-orbit
+        data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+        <ul class="orbit-container">
+            {% for img in self.gallery.all %}
+            <li class="orbit-slide">
+                <figure class="orbit-figure">
+                    {% if forloop.counter == 1 %}
+                        {% image img.image fill-400x300 as small %}
+                        {% image img.image fill-800x600 as medium %}
+                        {% image img.image fill-1024x768 as big %}
+                        <img data-interchange="[{{ small.url }}, small], [{{ medium.url }}, medium], [{{ big.url }}, large]"
+                             src="{{ small.url }}"
+                             alt="{{ big.alt }}" class="orbit-image">
+                    {% else %}
+                        {% image img.image fill-1024x768 as tmp %}
+                        <img data-echo="{{ tmp.url }}" width="{{ tmp.width }}" height="{{ tmp.height }}"
+                             alt="{{ tmp.alt }}" class="orbit-image">
+                    {% endif %}
+                </figure>
+            </li>
+            {% endfor %}
+        </ul>
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
+        <div class="title-wrapper text-center uppercase">
+            <h1 class="mb-0">{{ self.office_name }}</h1>
+            <h2 class="uppercase">real estate</h2>
+        </div>
+        <div class="hero-scroll" data-smooth-scroll data-offset="60" data-animation-easing="swing"
+                data-animation-duration="200">
+            <a href="#featured"><img data-echo="{% static 'img/icons/icon-scroll.svg' %}"></a>
+        </div>
+    </div>
+</div>
+
+<div class="grid-container" data-smooth-scroll data-offset="60" data-animation-easing="swing"
+     data-animation-duration="600">
+    <a href="#contact-form" class="black button uppercase bold" id="contact-us-btn">contact us</a>
+</div>
+
+<div class="grid-container mt-40" id="featured">
+    <div class="grid-x grid-margin-x">
+        <div class="large-8 cell">
+            <section class="grid-x grid-margin-x">
+                <div class="medium-3 cell">
+                    <h4 class="section-header">Location</h4>
+                </div>
+                <div class="medium-9 cell">
+                    <div class="grid-x">
+                        <p class="cell medium-7">
+                            {{ self.address }}
+                            <br>
+                            p: {{ self.phone }}
+                        </p>
+                        <div class="cell medium-5" id="get-directions-wrapper">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination={{ self.latitude }},{{ self.longitude }}"
+                               class="button uppercase bold" target="_blank" rel="nofollow">get directions</a>
+                        </div>
+                    </div>
+                    <div id="map"></div>
+                </div>
+            </section>
+
+            <section class="grid-x grid-margin-x mt-40">
+                <div class="medium-3 cell">
+                    <h4 class="section-header">Hours</h4>
+                </div>
+                <div class="medium-9 cell">
+                    <ul class="no-bullet opening-hours">
+                        {% for hours in self.opening_hours.all %}
+                            <li>
+                                <strong>{{hours.day}}</strong>
+                                <span>{{hours.times}}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+
+            <section class="grid-x grid-margin-x mt-40">
+                <div class="medium-3 cell">
+                    <h4 class="section-header">About us</h4>
+                </div>
+                <div class="medium-9 cell" id="description-wrapper">
+                    <div id="description-full">{{ self.description|safe }}</div>
+                    <div id="description-partial">{{ self.description|safe|truncatewords_html:20 }}</div>
+                    <button class="button clear px-0 py-5 font-sm toggle-btn">
+                        Read more
+                        <span class="ion-chevron-down"></span>
+                        <span class="ion-chevron-up"></span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="grid-x grid-margin-x mt-40">
+                <div class="medium-3 cell">
+                    <h4 class="section-header">Our agents</h4>
+                </div>
+                <div class="medium-9 cell">
+                    <div class="grid-x grid-margin-x grid-margin-y">
+                    {% for agent in self.agents %}
+                        <div class="medium-4 cell">
+                            <div class="grid-x grid-margin-x align-middle text-center">
+                                <div class="cell small-3 medium-12">
+                                    {% image agent.profile_image fill-160x160 as tmp %}
+                                    <img data-echo="{{ tmp.url }}" alt="{{ tmp.alt }}"
+                                         class="circle profile-image"
+                                         width="{{ tmp.width }}" height="{{ tmp.height }}">
+                                </div>
+                                <div class="cell small-8 medium-12 agent-name-wrapper">
+                                    <div class="mt-10 font-xl">{% if agent.name_short %}{{ agent.name_short }}{% else %}{{ agent.title }}{% endif %}</div>
+                                    <div>
+                                        <a href="{{ agent.url }}">View profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid-x grid-margin-x mt-40 mb-20" id="testimonial-section">
+                <div class="medium-3 cell">
+                    <h4 class="section-header">Testimonials</h4>
+                </div>
+                {% comment %} mobile testimonials {% endcomment %}
+                <div class="medium-9 cell">
+                    <div class="orbit" role="region" aria-label="Testimonials" data-orbit>
+                        <div class="orbit-wrapper">
+                            <div class="orbit-controls">
+                                <button class="orbit-previous">
+                                    <span class="show-for-sr">Previous Slide</span>&lt;
+                                </button>
+                                <button class="orbit-next">
+                                    <span class="show-for-sr">Next Slide</span>&gt;
+                                </button>
+                            </div>
+                            <ul class="orbit-container">
+                                {% for tes in self.all_testimonials %}
+                                <li class="orbit-slide">
+                                    {% include "offices/include/testimonial.html" with tes=tes %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% comment %} desctop testimonials {% endcomment %}
+                    <div class="grid-x grid-margin-x" id="desctop-testimonials">
+                    {% for tes in self.all_testimonials %}
+                        <div class="medium-4 cell text-center">
+                            {% include "offices/include/testimonial.html" with tes=tes %}
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="large-4 cell" id="contact-form-cell">
+            <div data-sticky-container>
+                <div class="sticky" data-sticky data-anchor="contact-form-cell" data-margin-top="5">
+                    {% include "offices/include/contact_form.html" with form=form class="dark" %}
+                    <div class="mt-20">
+                        <div class="font-xs">Share to</div>
+                        <div class="share-wrapper font-xxl color-primary">
+                            <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ request.get_host }}{{ self.url }}">
+                                <span class="ion-social-facebook"></span>
+                            </a>
+                            <a target="_blank" href="https://twitter.com/intent/tweet?url={{ request.get_host }}{{ self.url }}&text={{ self.title|urlencode }}&hashtags=#chisholmgamon">
+                                <span class="ion-social-twitter"></span>
+                            </a>
+                            <a target="_blank" href="https://pinterest.com/pin/create/bookmarklet/?{% if self.featured_image %}{% image self.featured_image width-800 as pin_photo %}media={{ pin_photo.url }}&{% endif %}url={{ request.get_host }}{{ self.url }}&description={{ self.title|urlencode }}">
+                                <span class="ion-social-pinterest"></span>
+                            </a>
+                            <a target="_blank"
+                                href="https://www.linkedin.com/shareArticle?url={{ request.get_host }}{{ self.url }}&title={{ self.title|urlencode }}">
+                                <span class="ion-social-linkedin"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="large-12 cell mb-40" id="listing-section">
+            {% for sec in self.get_listing_sections %}
+            <section class="mt-40 listing-block">
+                <div class="grid-x">
+                    <h4 class="cell auto">{{ sec.title }}</h4>
+                    <a class="button py-10" href="{{ sec.url }}">{{ sec.link_text }}</a>
+                </div>
+                <div class="grid-x grid-margin-x grid-margin-y">
+                    {% for listing in sec.listings %}
+                        <div class="medium-6 large-4 cell listing-item">
+                            <div class="listing-image-wrapper">
+                                {% image listing.image fill-370x240 as tmp %}
+                                <img data-echo="{{ tmp.url }}" alt="{{ tmp.alt }}" class="listing-image"
+                                     width="{{ tmp.width }}" height="{{ tmp.height }}">
+                                <!--img data-echo="{% static 'img/mpc-logo.png' %}" class="logo" alt="my property consultant"-->
+                                {% if sec.prop == 'latest_listings_sold' %}
+                                    <div class="sold-badge uppercase bold font-extra px-25">sold</div>
+                                {% endif %}
+                            </div>
+                            <div class="listing-info px-10 py-15 flex-grow-1">
+                                <div class="flex-grow-1">
+                                    <div class="grid-x">
+                                        <div class="auto cell">{{ listing.address_subNumber }}</div>
+                                        <div class="auto cell text-right listing-options">
+                                            {% if listing.bedrooms %}
+                                                <span>
+                                                    <img data-echo="{% static 'img/icon-bed.svg' %}" alt="bedroom">
+                                                    {{ listing.bedrooms}}
+                                                </span>
+                                            {% endif %}
+                                            {% if listing.bathrooms %}
+                                                <span>
+                                                    <img data-echo="{% static 'img/icon-bath.svg' %}" alt="bathroom">
+                                                    {{ listing.bathrooms }}
+                                                </span>
+                                            {% endif %}
+                                            {% if listing.parking %}
+                                                <span>
+                                                    <img data-echo="{% static 'img/icon-car.svg' %}" alt="parking">
+                                                    {{ listing.parking }}
+                                                </span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="color-primary">{{ listing.address_suburb }}</div>
+                                    <div class="mt-10 italic">{{ listing.priceView }}</div>
+                                </div>
+                                <div class="grid-x mt-10">
+                                    <div class="cell small-8">
+                                        {% image listing.agent.profile_image fill-50x50 as tmp %}
+                                        <img data-echo="{{ tmp.url }}" alt="{{ tmp.alt }}" class="circle profile-image"
+                                             width="{{ tmp.width }}" height="{{ tmp.height }}">
+                                        <span class="ml-5">{% if listing.agent.name_short %}{{ listing.agent.name_short }}{% else %}{{ listing.agent.title }}{% endif %}</span>
+                                    </div>
+                                    <div class="cell auto text-right">
+                                        <a href="{{ listing.get_absolute_url }}" class="button py-5 mt-10 bm-0">view</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endfor %}
+        </div>
+
+        <div class="small-12 cell" id="listing-mobile-wrapper">
+            {% comment %} SETDATA url {% endcomment %}
+            <a href="" class="cell auto button">View all listings for sale</a>
+            <a href="" class="cell auto button">View all listings for rent</a>
+            <a href="" class="cell auto button">View all sold properties</a>
+        </div>
+    </div>
+</div>
+
+<div class="reveal" id="video-modal" data-reveal>
+    <h1></h1>
+    <div class="responsive-embed mt-30">
+        <iframe src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+</div> <!-- office-page -->
+{% endblock content %}
+
+{% block body_js %}
+    <script>
+        var mapData = {
+            lat: {{ self.latitude }},
+            lon: {{ self.longitude }},
+            markerIcon: "{% static 'img/icon-map.svg' %}",
+        };
+    </script>
+    <script>
+        $(document).ready(function () {
+            if (window.innerWidth < 640) {
+                $('#desctop-testimonials').remove();
+            } else {
+                $('#testimonial-section .orbit').remove();
+            }
+
+            // fix orbit height
+            var height = $('.fullscreen-image-slider .orbit-image[src]').height();
+            if (height > window.innerHeight) height = window.innerHeight;
+
+            $(document).on('slidechange.zf.orbit', function () {
+                // echojs not always loads images in orbit slider corretcly
+                // so do it manually
+                var imgs = $('.orbit-slide.is-active .orbit-image[data-echo]');
+                imgs.each(function (i, img) {
+                    img.setAttribute('src', img.getAttribute('data-echo'));
+                    img.removeAttribute('data-echo');
+                });
+            });
+
+            var descriptionWrapper = $('#description-wrapper');
+            var descriptionFull = $('#description-full');
+            var descriptionPartial = $('#description-partial');
+            var descriptionToggle = $('#description-wrapper .toggle-btn');
+            descriptionToggle.on('click', function () {
+                descriptionFull.slideToggle();
+                descriptionPartial.slideToggle();
+                descriptionToggle.find('span').toggle();
+            });
+
+            var videoModalFrame = $('#video-modal iframe');
+            $('.testimonial-image-wrapper .ion-play').on('click', function () {
+                el = $(this);
+                videoModalFrame.attr('src', el.data('src'));
+            });
+            $(document).on('closed.zf.reveal', '#video-modal', function () {
+                // stop playing video on close
+                videoModalFrame.attr('src', '');
+            });
+
+        });
+
+        function initMap() {
+            var coords = {lat: mapData.lat, lng: mapData.lon};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: coords
+            });
+            var marker = new google.maps.Marker({
+                position: coords,
+                map: map,
+                icon: mapData.markerIcon,
+            });
+        }
+    </script>
+    {% if self.latitude and self.longitude %}
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ settings.cms.ThirdPartyApiSettings.google_maps }}&callback=initMap"></script>
+    {% endif %}
+{% endblock body_js %}

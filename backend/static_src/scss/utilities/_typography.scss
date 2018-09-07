@@ -1,0 +1,127 @@
+.uppercase {
+    text-transform: uppercase;
+}
+.lowercase {
+    text-transform: lowercase;
+}
+.capitalize {
+    text-transform: capitalize;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+.underline {
+    text-decoration: underline;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+// Simple Text Sizes
+
+.font-xs {
+    font-size: 12px;
+}
+.font-sm {
+    font-size: 14px;
+}
+.font-normal {
+    font-size: 16px;
+}
+.font-md {
+    font-size: 18px;
+}
+.font-lg {
+    font-size: 20px;
+}
+.font-xl {
+    font-size: 22px;
+}
+.font-xxl {
+    font-size: 24px;
+}
+.font-extra {
+    font-size: 32px;
+}
+
+// Text Color
+
+.color-white {
+    color: #fff;
+}
+.color-black {
+    color: $black;
+}
+.color-primary {
+    color: $primary-color;
+}
+
+// Text Style
+.italic {
+    font-style: italic;
+}
+.normal {
+    font-style: normal;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+// Text Overflow
+.ellipsis {
+    @include text-overflow();
+}
+
+// Text shadow
+.text-shadow {
+    text-shadow: 0px 0px 25px rgba($black, 0.8);
+}
+
+// Font Weights
+
+.bold {
+    font-weight: bold;
+}
+
+// links
+a {
+    @include transition(color 0.2s ease-in-out);
+}
+a[href^=tel] {
+    text-decoration:inherit;
+    color: inherit;
+}
+
+// body text
+.body-text {
+    a {
+        color: $black;
+        text-decoration: underline;
+        font-style: italic;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a {
+        color: $primary-color;
+        text-decoration: none;
+        font-style: unset;
+        &:hover {
+            color: $black;
+        }
+    }
+}

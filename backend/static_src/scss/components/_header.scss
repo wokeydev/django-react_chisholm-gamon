@@ -1,0 +1,272 @@
+// header
+// ------
+.sitehead {
+  max-width: calc(100% - 2rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index:102;
+  margin: 0 auto;
+
+  // logo
+  &__logo {
+    max-width: 140px;
+    display: block;
+    @include transition(max-width 0.2s ease-in-out);
+    @include breakpoint(large) {
+      max-width: 200px;
+    }
+    @include breakpoint(large) {
+      max-width: 250px;
+    }
+    // show black logo
+    &--black {
+      display: block;
+      width: 100%;
+    }
+    &--white {
+      display: none;
+      width: 100%;
+    }
+  }
+
+  // nav
+  nav {
+    a.translate {
+      display: none !important;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      li a {
+        display: block;
+        padding: 0 0.875rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        @include transition(color 0.2s ease-in-out);
+        &.toggle {
+          margin-left: 0.875rem;
+          .line {
+            background-color: $primary-color;
+            width: 37px;
+            height: 2px;
+            display: block;
+            margin: 8px auto;
+            @include transition(all 0.2s ease-in-out);
+          }
+          & > span:first-of-type {
+            margin-top: 0;
+          }
+          & > span:last-of-type {
+            margin-bottom: 0;
+          }
+          &:hover .line {
+            background-color: $black;
+            cursor: pointer;
+          }
+          &.menu-is-visible .line:nth-child(2) {
+            opacity: 0;
+          }
+          &.menu-is-visible .line:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+          }
+          &.menu-is-visible .line:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+          }
+        }
+        &:hover, &.is-active {
+          color: $black;
+        }
+      }
+    }
+  }
+  .print-logo {
+    display: none;
+  }
+}
+
+// show white header when banner
+body.header-reverse .sitehead {
+
+  .sitehead__logo {
+    // show white logo
+    &--black {
+      display: none;
+    }
+    &--white {
+      display: block;
+    }
+  }
+
+  // nav
+  nav ul li a {
+    color: $white;
+    &:hover,
+    &.is-active {
+      color: $primary-color;
+    }
+    &.toggle {
+      .line {
+        background-color: $white;
+      }
+    }
+  }
+
+}
+
+// menu to be primary color when full menu is open
+body.menu-is-visible .sitehead {
+
+  // logo
+  &__logo {
+    // show black logo
+    &--black {
+      display: block !important;
+    }
+    &--white {
+      display: none !important;
+    }
+  }
+
+  // nav
+  nav ul li a {
+    color: $primary-color;
+    &:hover,
+    &.is-active {
+      color: $black;
+    }
+    &.toggle {
+      .line {
+        background-color: $primary-color;
+      }
+    }
+    &:not(.toggle):not(.translate) {
+      display: none !important;
+    }
+    @include breakpoint(large) {
+      &.translate {
+        display: block !important;
+      }
+    }
+  }
+
+}
+
+// wrapper
+// -------
+.head-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 0 0.75rem;
+  z-index: 101;
+  background-color: transparent;
+  @include transition(background-color 0.2s ease-in-out, padding 0.2s ease-in-out);
+  transition-delay: 0.1s;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.5rem;
+    height: 0.5rem;
+    background-color: transparent;
+    @include transition(background-color 0.2s ease-in-out);
+    transition-delay: 0.1s;
+  }
+}
+
+// head wrap -- menu visible
+body.menu-is-visible .head-wrap {
+  background-color: $white !important;
+  &:after {
+    display: none !important;
+  }
+}
+
+@media (hover: hover) {
+  body.header-reverse .head-wrap:hover {
+    background-color: $white;
+    &:after {
+      background-color: $primary-color;
+    }
+    .sitehead__logo {
+      // show black logo
+      &--black {
+        display: block;
+      }
+      &--white {
+        display: none;
+      }
+    }
+
+    // nav
+    nav ul li a {
+      color: $primary-color;
+      &:hover,
+      &.is-active {
+        color: $black;
+      }
+      &.toggle .line {
+        background-color: $primary-color;
+      }
+      &.toggle:hover .line,
+      &.toggle.is-active .line {
+        background-color: $black;
+      }
+    }
+  }
+}
+
+// scrolled header
+// ---------------
+html.is-reveal-open .head-wrap,
+html.is-reveal-open .head-wrap:hover,
+body.is-scrolled .head-wrap,
+body.is-scrolled .head-wrap:hover,
+body.header-reverse.is-scrolled .head-wrap,
+body.header-reverse.is-scrolled .head-wrap:hover {
+  background-color: $white;
+  padding: 1rem 0 .75rem;
+  &:after {
+    background-color: $primary-color;
+  }
+
+  // logo
+  .sitehead__logo {
+    max-width: 124px;
+    // show white logo
+    &--black {
+      display: none;
+    }
+    &--white {
+      display: block;
+    }
+  }
+
+  // nav
+  nav ul {
+    line-height: 1;
+  }
+  nav ul li a {
+    color: $primary-color;
+    &:hover,
+    &.is-active {
+      color: $black;
+    }
+    &.toggle .line {
+      background-color: $primary-color;
+    }
+    &:not(.toggle) {
+      display: none;
+      @include breakpoint(medium) {
+        display: block;
+      }
+    }
+  }
+}

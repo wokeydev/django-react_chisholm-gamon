@@ -1,0 +1,19 @@
+.search-form {
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  label {
+    margin-bottom: 1rem;
+    @include breakpoint(large) {
+      margin-bottom: 0;
+    }
+  }
+
+  button {
+    width: 100%;
+    @include breakpoint(large) {
+      width: auto;
+    }
+  }
+
+}

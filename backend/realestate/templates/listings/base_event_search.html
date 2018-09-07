@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags cms_tags static %}
+
+{% block extra_css %}
+<link rel=”canonical” href="{{ request.get_full_path }}"/>
+{% if request.GET.view_as == 'map' %}
+  {% comment %} map css {% endcomment %}
+{% endif %}
+    <link rel="stylesheet" href="{% static 'vendor/select2/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/pickadate/classic.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/pickadate/classic.date.css' %}">
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }}page-listing-search{% endblock %}
+
+{% block content %}
+<section id="event-search-page" role="main" class="listing-search-page page-content no-img">
+    <form id="listing-search-form" action="" method="GET" data-toggler=".search-is-open">
+        <input type="hidden" name="per_page" value="">
+
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell">
+                    {% include 'includes/realestate/listing_search_form.html' with queryname="Where" querymsg="Search by Suburb, Postcode or Address" %}
+                </div>
+            </div>
+
+            <div class="listing-search-title-bar">
+                <div class="flex align-bottom">
+                    <h1 class="listing-search-title">
+                        {{ listings.paginator.count }}
+                        {% block search_title %} {% endblock search_title %}
+                    </h1>
+                </div>
+                {% block search_views %}
+                <div class="listing-search-actions">
+                    <!-- change view -->
+                    <div class="listing-action-view show-for-medium view-{{ request.GET.view_as }}">
+                        <span class="color-primary">View as</span>
+                        <label for="view_as_grid">
+                            <input id="view_as_grid" type="radio" name="view_as" value="grid">
+                            <i class="icon ion-grid"></i>
+                        </label>
+                        <label for="view_as_map">
+                            <input id="view_as_map" type="radio" name="view_as"
+                                value="map" {% if request.GET.view_as == "map" %}checked="checked"{% endif %}>
+                            <i class="icon ion-android-pin"></i>
+                        </label>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </form>
+
+    {% if request.GET.view_as == 'map' %}
+        {% include 'includes/listings/map_view.html' %}
+    {% else %}
+        <div class="grid-container">
+            <div class="listing-block">
+                <div class="grid-x grid-margin-x grid-margin-y listing-scroll">
+                    {% block listing_list %} {% endblock listing_list %}
+
+                    <!-- myVIP form -->
+                    <div class="small-12 cell listing-scroll-add">
+                        {% include 'includes/forms/myvip_form.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% block paginator %}
+            {% include 'includes/listings/pagination.html' %}
+            {% include 'includes/load_spinner.html' with text="Loading more great properties..." %}
+        {% endblock paginator %}
+    {% endif %}
+
+</section>
+{% endblock content %}
+
+{% block body_js %}
+
+{% comment %} map {% endcomment %}
+{% if request.GET.view_as == 'map' %}
+  <script>
+    function initMap() {
+
+      // set map container
+      var map = new google.maps.Map(document.getElementById('listing-search-map'));
+
+      // set infowindow variable
+      var infoWin = new google.maps.InfoWindow({
+        maxWidth: 460
+      });
+
+      // Add some markers to the map.
+      var markers = locations.map(function(location, i) {
+        // marker
+        var marker = new google.maps.Marker({
+          position: location,
+          icon: "{% static 'img/icon-map.svg' %}"
+        });
+        // infowindow
+        google.maps.event.addListener(marker, 'click', function(evt) {
+          infoWin.setContent(location.info);
+          infoWin.open(map, marker);
+        });
+        // remove infowindow backgrounds
+        google.maps.event.addListener(infoWin, 'domready', function() {
+          var iwOuter = $('.gm-style-iw');
+          var iwBackground = iwOuter.prev();
+          var iwParent = iwOuter.parent();
+          // add class to parent for styling
+          iwParent.addClass('iw-parent');
+          // Remove the background shadow DIV
+          iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+          // Remove the white background DIV
+          iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+          // Add class to border div for styling
+          iwBackground.children(':nth-child(3)').addClass('iw-border');
+          // Hide shadow border div
+          iwBackground.children(':nth-child(1)').css({'display' : 'none'});
+        });
+        return marker;
+      });
+
+      // fit map to marker bounds
+      var bounds = new google.maps.LatLngBounds();
+      for (var i = 0; i < markers.length; i++) {
+        bounds.extend(markers[i].getPosition());
+      }
+      map.fitBounds(bounds);
+
+      // Add a marker clusterer to manage the markers.
+      var markerCluster = new MarkerClusterer(map, markers, {
+        styles: [{
+          url: '{% static "vendor/markerclusterer/images/m1.png" %}',
+          width: 53,
+          height: 52,
+          textColor: "#ffffff"
+        }],
+      });
+
+      // draw on map functions
+      // ---------------------
+      var drawingManager;
+      var shape;
+
+      // init draw on button click
+      $('#mapdraw').click(function(e) {
+        e.preventDefault();
+        $(this).addClass('hide');
+        $('#mapclear').removeClass('hide');
+        drawingManager = new google.maps.drawing.DrawingManager({
+          drawingMode: google.maps.drawing.OverlayType.POLYGON,
+          drawingControl: false,
+          polygonOptions: {
+            fillColor: '#EB008B',
+            fillOpacity: 0.3,
+            strokeColor: '#EB008B',
+            strokeWeight: 3,
+            clickable: false,
+            editable: true,
+            draggable: true,
+            zIndex: 1
+          }
+        });
+        drawingManager.setMap(map);
+
+        // do things after shape drawn
+        google.maps.event.addListener(drawingManager, 'polygoncomplete', function(polygon) {
+          shape = polygon;
+          var polygonBounds = polygon.getPath();
+          polygonBounds.forEach(function(xy, i) {
+            console.log(xy.lat());
+            console.log(xy.lng());
+          });
+          drawingManager.setMap(null);
+        });
+
+        //  clear map on button click
+        $('#mapclear').click(function(e) {
+          e.preventDefault();
+          $(this).addClass('hide');
+          $('#mapdraw').removeClass('hide');
+          shape.setMap(null);
+        });
+
+      });
+
+    } // END initmap()
+    {% block set_locations %}
+        var locations = [
+        {% for listing in listings %}
+            {
+            lat: {{ listing.location.y|floatformat:6 }},
+            lng: {{ listing.location.x|floatformat:6 }},
+            info: `{% include 'includes/listings/map_card.html' %}`
+            }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        ]; // END var locations
+    {% endblock set_locations %}
+  </script>
+  <script src="{% static 'vendor/markerclusterer/markerclusterer.js' %}"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ settings.cms.ThirdPartyApiSettings.google_maps }}&callback=initMap"></script>
+{% endif %}
+
+  <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+  <script src="{% static 'js/infinite-scroll.pkgd.min.js' %}"></script>
+  <script src="{% static 'js/listing_search.min.js' %}"></script>
+  <script src="{% static 'vendor/pickadate/picker.js' %}"></script>
+  <script src="{% static 'vendor/pickadate/picker.date.js' %}"></script>
+  <script>
+      $(document).ready(function() {
+
+        // init date picker
+        $('.datepicker').pickadate({
+            formatSubmit: 'yyyy\-mm\-dd',
+            hiddenName: true
+        });
+
+      });
+  </script>
+{% endblock %}

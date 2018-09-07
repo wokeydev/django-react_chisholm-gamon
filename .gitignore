@@ -1,0 +1,25 @@
+backend/static_src/build/node_modules/*
+es
+runserver.sh
+activate.sh
+.env
+
+*.orig
+
+# pycache folders
+__pycache__
+backend/chisholm/media/*
+backend/chisholm/settings/local.py
+
+# editor
+.vscode
+**/.vscode
+.DS_Store
+.idea
+**/.DS_Store
+backend/chisholm/settings/__init__.py
+
+
+# Frontend
+frontend/node_modules/
+frontend/.next

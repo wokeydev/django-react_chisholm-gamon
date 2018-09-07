@@ -1,0 +1,63 @@
+{% extends "wagtailadmin/base.html" %} {% load staticfiles %}
+{% block branding_logo %}
+    <img src="{% static 'img/logo/cg-acronym-orange.svg' %}" alt="Custom Project" width="80" />
+{% endblock %}
+{% block extra_css %}
+{{ block.super }}
+<style>
+    header {
+        background-color: #ff8124;
+    }
+
+    .breadcrumb {
+        background: #1a1a1a;
+    }
+
+    .breadcrumb li a:after,
+    .breadcrumb li span:after {
+        color: white;
+    }
+
+    .tab-nav.merged {
+        background-color: #ff8124 !important;
+    }
+
+    .tab-nav a {
+        background-color: #333;
+        border-top: .3em solid #bbb
+    }
+
+    .tab-nav a:hover {
+        border-top-color: #1a1a1a
+    }
+
+    .page-explorer .listing .index {
+        background-color: #ff8124;
+    }
+
+    .page-explorer .listing .index .button {
+        border-color: #fff;
+    }
+
+    .page-explorer .listing .index .button.bicolor {
+        background: #333;
+    }
+
+    .page-explorer .listing .index .button:hover {
+        background: #333;
+    }
+
+    .t-inverted .u-btn-current:hover {
+        background-color: #333;
+        border-color: #333;
+    }
+
+    .page-explorer .listing .index .privacy-indicator {
+        color: #fff;
+    }
+
+    header .button {
+        background-color: #333;
+    }
+</style>
+{% endblock %}

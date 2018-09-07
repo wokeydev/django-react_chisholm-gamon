@@ -1,0 +1,130 @@
+// post content
+// ------------
+.blog-header-image {
+  height: 45vh;
+  position: relative;
+  @include breakpoint(medium) {
+    height: 60vh;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    @include linear-gradient(rgba(black,0.5), rgba(white,0));
+  }
+}
+.blog-post {
+
+  // blog publishing
+  .blog-publishing {}
+  .blog-author {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    img {
+      margin-bottom: 1rem;
+    }
+    p.blog-author-name {
+      font-size: rem-calc(24);
+      font-weight: 300;
+      color: $black;
+      margin-bottom: 0.125rem;
+      width: 100%;
+      span {
+        color: $primary-color;
+      }
+    }
+    p.blog-author-date {
+      margin-bottom: 0;
+      font-size: rem-calc(14);
+      font-weight: 300;
+      width: 100%;
+    }
+  }
+  .mobile-blog-author {
+    margin-bottom: 2rem;
+  }
+
+  // title
+  h1.blog-title {
+    line-height: 1;
+    font-weight: 900;
+    color: $black;
+    font-size: rem-calc(30);
+    margin-bottom: 2rem;
+    @include breakpoint(medium) {
+      font-size: rem-calc(38);
+    }
+  }
+
+  // category
+  .blog-cat a {
+    font-size: rem-calc(14);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  // inline images
+  img.full-width {
+    width: calc(100% + 1.875rem);
+    max-width: calc(100% + 1.875rem);
+    margin-left: -0.9375rem;
+  }
+
+  // related posts
+  .blog-related {
+    margin-top: 2.5rem;
+    h3 {
+      font-size: rem-calc(24);
+      margin-bottom: 1rem;
+    }
+
+    // cards
+    .card {
+      .card-divider h3 {
+        color: $black;
+        font-size: rem-calc(18);
+        margin-bottom: 0;
+      }
+      .author-divider {
+        display: none;
+      }
+      a.card-category {
+        display: block;
+        margin-top: 0.25rem;
+      }
+      .card-author,
+      .card-date {
+        display: block;
+        font-weight: 500;
+        font-size: rem-calc(14);
+      }
+      .card-section-left p {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: space-between;
+        margin-bottom: 0;
+      }
+      .card-section-right {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      a.button {
+        font-size: rem-calc(14);
+        padding: 0.125rem 0.25rem;
+        margin-bottom: 0 !important;
+      }
+    }
+
+  }
+
+}

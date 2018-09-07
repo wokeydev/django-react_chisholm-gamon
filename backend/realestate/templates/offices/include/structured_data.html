@@ -1,0 +1,59 @@
+{% load wagtailimages_tags %}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Chisholm & Gamon {{self.office_name}}",
+  "legalName": "Chisholm & Gamon {{self.office_name}}",
+  {% if self.latitude and self.longitude %}
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{self.latitude}},
+    "longitude": {{self.longitude}}
+  },
+  {% endif %}
+  {% if self.gallery.all.count %}
+  "image": "{{request.site.root_url}}{{self.gallery.all.0.image.file.url}}",
+  {% endif %}
+  "url": "{{request.site.root_url}}{{self.get_full_url}}",
+  {% if settings.cms.SEOSettings.logo %}
+  "logo": "{% image settings.cms.SEOSettings.logo original %}",
+  {% endif %}
+  "address": {
+    "addressCountry": "AU",
+    "addressLocality": "{{self.suburb}}",
+    "addressRegion": "{{self.state}}",
+    "postalCode": "{{self.postcode}}",
+    "streetAddress": "{{self.address}}"
+  },
+  {% if self.email %}
+  "email": "{{self.email}}",
+  {% endif %}
+  {% if self.fax %}
+  "faxNumber": "{{self.fax}}",
+  {% endif %}
+  {% if self.phone %}
+  "telephone": "{{self.phone}}",
+  {% endif %}
+  {% if self.description %}
+  "description": "{{self.description|striptags}}"{% if settings.cms.SEOSettings.logo %},{% endif %}
+  {% endif %}
+  {% if settings.cms.SEOSettings.logo %}
+  "parentOrganization": {
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "{{settings.cms.SEOSettings.organisation_name}}",
+      "url": "{{self.request.site.root_url}}",
+      "logo": "{% image settings.cms.SEOSettings.logo original %}",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "{{settings.cms.SEOSettings.customer_contact_number}}",
+        "contactType": "{{settings.cms.SEOSettings.customer_contact_type}}"
+      }]
+    }
+  },
+  {% endif %}
+
+}
+</script>

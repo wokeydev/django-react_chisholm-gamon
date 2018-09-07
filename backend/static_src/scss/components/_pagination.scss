@@ -1,0 +1,14 @@
+.pagination {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.pagination .step-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    display: inline-block;
+}

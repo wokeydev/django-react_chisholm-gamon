@@ -1,0 +1,142 @@
+.hero.hero-single {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  @include breakpoint(medium) {
+    height: 700px;
+  }
+  .hero-bg {
+    height: 100%;
+    width: 100%;
+    //padding-top: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include breakpoint(medium) {
+      //padding-top: 200px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .hero-center {
+    top: 50%;
+    position: absolute;
+    transform: translate(0, -50%);
+    width: 100%;
+    @include breakpoint(small) {
+      top: 45%;
+    }
+    @include breakpoint(medium) {
+      left: 50%;
+      position: absolute;
+      transform: translate(0, -50%);
+      margin-left: -300px;
+      width: 600px;
+    }
+    @include breakpoint(large) {
+      width: 900px;
+       margin-left: -450px;
+    }
+  }
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @media (min-aspect-ratio: 16/9) {
+      height: 300%;
+      top: -100%;
+    }
+    @media (max-aspect-ratio: 16/9) {
+      width: 300%;
+      left: -100%;
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  .hero-title {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 320px;
+    @include breakpoint(medium) {
+      max-width: 500px;
+    }
+    h1 {
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 500;
+      color: #FFF;
+      text-shadow: 0px 0px 25px rgba($black, 0.8);
+      strong,
+      span,
+      b {
+        font-weight: 500;
+        color: get-color(primary);
+      }
+      @include breakpoint(medium) {
+        font-size: 40px;
+        line-height: 48px;
+      }
+    }
+  }
+  @keyframes glowing {
+    0% {
+      opacity: 0.4;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+}
+
+.hero.hero-multiple {
+  .hero-title {
+    position: absolute;
+    top: 200px;
+    z-index: 100;
+    width: 300px;
+    left: calc(50% - 150px);
+    text-align: center;
+    h1 {
+      font-size: 40px;
+      color: #FFF;
+    }
+
+  }
+  .hero-search {
+    position: absolute;
+    top: 300px;
+    z-index: 100;
+    width: 300px;
+    left: calc(50% - 150px);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+  .hero-slider {
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .orbit {
+      background: #333;
+      .orbit-wrapper {
+        .orbit-controls {
+          display: none;
+        }
+        .orbit-slide {
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

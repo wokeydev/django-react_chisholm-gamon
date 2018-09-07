@@ -1,0 +1,66 @@
+/* Start Margin Top and Bottom Spaces */
+
+$step: 0;
+@while $step <= 100 {
+  .mt-#{$step} {
+    margin-top: #{$step}px;
+  }
+  .mr-#{$step} {
+    margin-right: #{$step}px;
+  }
+  .mb-#{$step} {
+    margin-bottom: #{$step}px;
+  }
+  .ml-#{$step} {
+    margin-left: #{$step}px;
+  }
+  .my-#{$step} {
+    margin-top: #{$step}px;
+    margin-bottom: #{$step}px;
+  }
+  .mx-#{$step} {
+    margin-left: #{$step}px;
+    margin-right: #{$step}px;
+  }
+  .m-#{$step} {
+    margin: #{$step}px;
+  }
+
+  .pt-#{$step} {
+    padding-top: #{$step}px;
+  }
+  .pr-#{$step} {
+    padding-right: #{$step}px;
+  }
+  .pb-#{$step} {
+    padding-bottom: #{$step}px;
+  }
+  .pl-#{$step} {
+    padding-left: #{$step}px;
+  }
+  .py-#{$step} {
+    padding-top: #{$step}px;
+    padding-bottom: #{$step}px;
+  }
+  .px-#{$step} {
+    padding-left: #{$step}px;
+    padding-right: #{$step}px;
+  }
+  .p-#{$step} {
+    padding: #{$step}px;
+  }
+  $step: $step + 5;
+}
+
+/* End Margin Top and Bottom Spaces */
+
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+.flex-grow-2 {
+    flex-grow: 2;
+}
+.flex-grow-3 {
+    flex-grow: 3;
+}

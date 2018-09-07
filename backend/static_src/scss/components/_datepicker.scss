@@ -1,0 +1,40 @@
+.picker__holder {
+    border-color: $primary-color;
+
+    // month
+    .picker__month {
+        color: $primary-color;
+    }
+
+    // next prev arrows
+    .picker__nav--next:before, .picker__nav--prev:before {
+        border-top: .375em solid transparent;
+        border-bottom: .375em solid transparent;
+        border-right: .5em solid $primary-color;
+    }
+    .picker__nav--next:before {
+        border-right: 0;
+        border-left: .5em solid $primary-color;
+    }
+
+    // today flag
+    .picker__day--today:before,
+    .picker__button--today:before {
+        border-top-color: $primary-color;
+    }
+
+    // selected day
+    .picker--focused & .picker__day--selected,
+    .picker__day--selected,
+    .picker__day--selected:hover {
+        background-color: $primary-color;
+        font-weight: 500;
+    }
+
+}
+
+// override readonly field styling
+input[readonly].datepicker {
+    background-color: transparent !important;
+    cursor: unset !important;
+}

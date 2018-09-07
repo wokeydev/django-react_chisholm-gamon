@@ -1,0 +1,39 @@
+.button {
+  &.small {
+    padding: 4px 10px;
+  }
+  &.black {
+    background: $black;
+    color: $white;
+  }
+  &.white:not(:hover) {
+    background: white;
+  }
+}
+
+// loading animations
+.button.is-loading,
+a.is-loading,
+button.is-loading {
+  position: relative;
+  color: transparent !important;
+
+  // loader
+  &:after {
+    content: '\f201';
+    font-family: Ionicons;
+    color: white;
+    animation: spinCenter 1s infinite linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(0deg);
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1.5rem;
+  }
+
+}

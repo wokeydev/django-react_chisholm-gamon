@@ -1,0 +1,22 @@
+{% load wagtailimages_tags static %}
+
+<div class="agent-wrapper cell medium-6 large-4 column pointer{% if class %} {{ class }}{% endif %}">
+    {% image agent.profile_image width-150 as img %}
+    <div class="agent-image {% if not agent.profile_image %}default{% endif %}"
+            data-echo-background="{% if agent.profile_image %}{{ img.url }}{% else %}{% static 'img/mpc-logomark@2x.png' %}{% endif %}">
+    </div>
+    <div class="info ml-20 my-10 font-sm">
+        <h5 class="mb-0">{{ agent.title }}</h5>
+        <p class="italic">{{ agent.job_title }}</p>
+        <p class="hide-for-small-only flex-grow-1">
+            {% if agent.phone %}m: {{ agent.phone }} <br>{% endif %}
+            {% if agent.office_phone %}p: {{ agent.office_phone }} <br>{% endif %}
+        </p>
+        <div>
+            <a href="#" data-open="contact-form-modal" data-id="{{ agent.id }}" data-name="{% if agent.name_short %}{{ agent.name_short }}{% else %}{{ agent.title }}{% endif %}">
+                Email <span class="hide-for-small-only">{% if agent.name_short %}{{ agent.name_short }}{% else %}{{ agent.title }}{% endif %}</span>
+            </a> |
+            <a href="{{ agent.url }}" class="profile-link">View profile</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+// footer
+// ------
+.footer {
+
+  // pre footer
+  &__pre {
+    max-width: calc(100% - 2rem);
+    margin: 1.25rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .terms {
+      margin-top: 0.75rem;
+      li a {
+        padding: 0;
+        line-height: 1.6;
+        color: black;
+        @include transition(color);
+        &:hover, &:active, &.is-active {
+          color: $primary-color;
+        }
+      }
+      li.divider {
+        padding: 0 0.5rem;
+      }
+    }
+    &-logo {
+      width: 65px;
+    }
+  }
+
+  // main footer
+  &__main {
+    background-color: $primary-color;
+    padding: 1rem 0;
+    @include breakpoint(large) {
+      padding: 2rem 0;
+    }
+    &-inner {
+      max-width: calc(100% - 2rem);
+      margin: 0 auto;
+    }
+    a {
+      display: block;
+      color: $white;
+      font-size: 0.875rem;
+      line-height: 1.25;
+      &:hover, &:active, &.is-active {
+        text-decoration: underline;
+      }
+    }
+    .others a {
+      margin-bottom: 0.125rem;
+    }
+    .meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      p {
+        display: block;
+        width: 100%;
+        color: $white;
+        margin-bottom: 0;
+        font-size: 0.875rem;
+      }
+      a {
+        display: inline-block;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // bottom links
+  .bottom-links {
+    padding: 35px 0;
+    margin-top: 25px;
+    background-color: $primary-color;
+
+    .row {
+      @include flex();
+    }
+
+    li {
+      line-height: 1.2;
+    }
+
+    a {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .bold {
+      li {
+        line-height: 1.7;
+      }
+    }
+
+    .column.text-right {
+      position: relative;
+    }
+    .bottom-align {
+      @include position(absolute, null, 0, 0, null);
+    }
+  }
+
+}

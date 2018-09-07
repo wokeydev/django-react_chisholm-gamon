@@ -1,0 +1,44 @@
+.contact-form {
+    padding: 1rem;
+
+    @include breakpoint(small only) {
+      margin-left: -0.625rem;
+      margin-right: -0.625rem;
+
+      button {
+          width: 100%;
+      }
+    }
+
+    &.dark {
+        background-color: $black;
+        * {
+            color: $white;
+        }
+        input[type="text"], textarea {
+            background-color: $black;
+            &:focus {
+                border-color: $primary-color;
+                box-shadow: none;
+            }
+        }
+        input[type="text"]:not(:focus),
+        textarea:not(:focus) {
+            border-color: $white;
+        }
+    }
+}
+.reveal .contact-form {
+    padding: 0;
+    input[type="text"]:not(:focus),
+    textarea:not(:focus) {
+        border-color: $dark-gray;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        color: $dark-gray;
+    }
+    .radio-checkbox-wrapper .radio-checkbox {
+        color: $primary-color;
+    }
+}

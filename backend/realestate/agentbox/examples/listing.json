@@ -1,0 +1,616 @@
+{
+    "response": {
+        "listing": {
+            "id": "1P1364",
+            "subOfficeListingId": "",
+            "officeId": "4",
+            "officeName": "Black Rock Office",
+            "type": "Sale",
+            "status": "Available",
+            "marketingStatus": "Available",
+            "hiddenListing": false,
+            "offMarketListing": false,
+            "projectListingNominated": false,
+            "webLink": "http://chisholmgamon.com.au/buying/property-search/view/1P1364",
+            "authority": "Exclusive",
+            "method": "Private Treaty",
+            "listedDate": "2017-10-24",
+            "expiryDate": "2018-01-22",
+            "auctionDate": "2017-12-02T12:00:00+11:00",
+            "auctionVenue": "",
+            "eoiClosingDate": "",
+            "onMarketDate": "2017-11-02T14:26:58+11:00",
+            "displayPrice": "Contact Agent",
+            "searchPrice": "1385000",
+            "listedPrice": {
+                "value": "1385000"
+            },
+            "soldDate": "",
+            "soldPrice": "0",
+            "soldPriceConfidential": true,
+            "inspectionType": "",
+            "inspectionDates": [],
+            "property": {
+                "type": "Residential",
+                "category": "House",
+                "name": "",
+                "newConstruction": false,
+                "address": {
+                    "streetAddress": "8 Anstee Grove",
+                    "levelNum": "",
+                    "lotNum": "",
+                    "unitNum": "",
+                    "streetNum": "8",
+                    "streetName": "Anstee Grove",
+                    "suburb": "Bentleigh",
+                    "state": "VIC",
+                    "postcode": "3204",
+                    "country": "Australia",
+                    "region": "Bayside",
+                    "hideAddress": false
+                },
+                "location": {
+                    "lat": "-37.92061996",
+                    "long": "145.03053284"
+                },
+                "bedrooms": "2",
+                "bathrooms": "1",
+                "loungeRooms": "",
+                "toilets": "",
+                "studies": "",
+                "pools": "",
+                "garages": "",
+                "carPorts": "2",
+                "carSpaces": "",
+                "totalParking": "2",
+                "landArea": {
+                    "value": "670",
+                    "unit": "sqm"
+                },
+                "buildingArea": {
+                    "value": "",
+                    "unit": "sqm"
+                },
+                "externalArea": {
+                    "value": "",
+                    "unit": "sqm"
+                },
+                "frontage": {
+                    "value": "",
+                    "unit": "m"
+                },
+                "aspect": "",
+                "yearBuilt": "",
+                "yearRenovated": "",
+                "construction": "",
+                "condition": "",
+                "energyRating": "",
+                "features": "",
+                "keyFeature": {
+                    "name": "",
+                    "value": ""
+                },
+                "legalDetails": {
+                    "legalDescription": "",
+                    "lot": "",
+                    "depositedPlan": "",
+                    "volume": "",
+                    "folio": "",
+                    "block": "",
+                    "section": "",
+                    "zoning": ""
+                }
+            },
+            "outgoings": {
+                "landTax": {
+                    "value": "",
+                    "period": "quarter"
+                },
+                "councilRates": {
+                    "value": "",
+                    "period": "quarter"
+                },
+                "waterRates": {
+                    "value": "",
+                    "period": "quarter"
+                },
+                "strataAdmin": {
+                    "value": "",
+                    "period": "quarter"
+                },
+                "strataSinking": {
+                    "value": "",
+                    "period": "quarter"
+                },
+                "otherOutgoings": {
+                    "value": "",
+                    "period": "quarter"
+                },
+                "totalOutgoings": {
+                    "value": "0",
+                    "period": "year"
+                }
+            },
+            "mainHeadline": "Art Deco Charm in idyllic garden hideaway",
+            "mainDescription": "On 670sqmt approx of parklike gardens, this delightful 1940s clinker brick Art Deco one of a pair with great scope to extend (STCA) with a parklike rear garden and enviably located within strolling distance of Centre Rd shopping and Bentleigh train station. Currently leased at $2172.00 pcm until January 2019.\n\nFresh and inviting with polished boards and white timber blinds, this sparkling gem features a beautiful main bedroom (BIRs), north facing lounge with open fireplace, elegant dining room, radiant modern bathroom, beautiful new white gloss kitchen with integrated dishwasher and stainless steel appliances, 2nd double bedroom and laundry with separate toilet.\n\nThe massive rear garden lends itself towards a dynamic extension, a pool or an urban farmlet for the green-conscious if your heart desires.  \n\nDelightful with its leadlight entry, high ceilings and ornate cornices, this cottage haven features security doors, gas heating, a garden shed, an original garage and further off-street parking.\n\nNestled in this tiny street between Centre Road shopping and Bentleigh West Primary School, surrounded by stylish cafes including the District Brewer, and an easy walk to Centre Road shopping,  Bentleigh Train Station, the 703 Middle Brighton to Monash Uni bus, the gorgeous Allnutt Park and the sports facilities at Brighton's Dendy Park.\n\n\n•       Currently leased at $2172.00 pcm for 12 months to January 2019 \n•\tA parklike rear garden that goes forever\n•\tFreshly updated with new kitchen and refurbished bathroom\n•\tSo much scope to extend\n•\tBrighton Secondary College zone\n•\tWalk to Centre Road shops & cafes\n\nInspect by appointment only\n",
+            "images": [
+                {
+                    "id": "42474",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959341825194810.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959341825194810-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959341825194810-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959341825194810-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959341825194810-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "1",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42464",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959299663147014.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959299663147014-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959299663147014-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959299663147014-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959299663147014-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "2",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42465",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959303222806868.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959303222806868-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959303222806868-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959303222806868-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959303222806868-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "3",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42466",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959306450234307.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959306450234307-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959306450234307-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959306450234307-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959306450234307-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "4",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42467",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959307469541281.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959307469541281-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959307469541281-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959307469541281-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959307469541281-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "5",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42468",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959308631980233.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959308631980233-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959308631980233-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959308631980233-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959308631980233-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "6",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42469",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959310123788638.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959310123788638-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959310123788638-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959310123788638-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959310123788638-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "7",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42470",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959311040697289.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959311040697289-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959311040697289-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959311040697289-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959311040697289-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "8",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42471",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959312162161908.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959312162161908-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959312162161908-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959312162161908-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959312162161908-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "9",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42472",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959313343984515.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959313343984515-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959313343984515-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959313343984515-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959313343984515-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "10",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                },
+                {
+                    "id": "42473",
+                    "title": "",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959314327259735.jpg",
+                    "thumbnails": [
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959314327259735-rsa.jpg",
+                            "size": "a",
+                            "width": "267",
+                            "height": "400"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959314327259735-rsb.jpg",
+                            "size": "b",
+                            "width": "600",
+                            "height": "900"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959314327259735-rsc.jpg",
+                            "size": "c",
+                            "width": "640",
+                            "height": "1170"
+                        },
+                        {
+                            "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/150959314327259735-rsd.jpg",
+                            "size": "d",
+                            "width": "1280",
+                            "height": "1920"
+                        }
+                    ],
+                    "order": "11",
+                    "lastModified": "2018-04-16T17:28:47+10:00"
+                }
+            ],
+            "floorPlans": [
+                {
+                    "id": "3281",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/fp/150959315936407413.jpg",
+                    "title": "Floorplan 1",
+                    "thumbnail": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/fp/150959315936407413-rsz.jpg",
+                    "order": "1"
+                }
+            ],
+            "documents": [
+                {
+                    "id": "112",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/doc/150959317905612296.pdf",
+                    "title": "Auction authority.pdf",
+                    "type": "Agency Agreement",
+                    "webDisplay": false,
+                    "order": "1"
+                },
+                {
+                    "id": "235",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/doc/151235370277967582.pdf",
+                    "title": "Statement Of Information",
+                    "type": "General Docs",
+                    "webDisplay": false,
+                    "order": "1"
+                },
+                {
+                    "id": "707",
+                    "url": "https://agentbox-2518.s3.amazonaws.com/public_html/media/lt/1/1P1364/doc/152047847932434008.pdf",
+                    "title": "Statement Of Information",
+                    "type": "General Docs",
+                    "webDisplay": true,
+                    "order": "2"
+                }
+            ],
+            "externalLinks": [
+                {
+                    "type": "Property Web Link",
+                    "title": "36 Mitford Street Elwood",
+                    "url": "http://chisholmgamon.com.au/buying/property-search/view/1P1364",
+                    "order": "1"
+                }
+            ],
+            "relatedStaffMembers": [
+                {
+                    "webDisplay": false,
+                    "displayOrder": "0",
+                    "role": "Appraisal Agent",
+                    "staffMember": {
+                        "id": "1stf0004",
+                        "status": "Active",
+                        "officeId": "4",
+                        "officeName": "Black Rock Office",
+                        "externalMemberId": "",
+                        "firstName": "Amanda",
+                        "lastName": "Thomson",
+                        "role": "Sales Representative",
+                        "jobTitle": "Senior Sales Consultant",
+                        "email": "athomson@chisholmgamon.com.au",
+                        "mobile": "0418 266 326",
+                        "phone": "03 9589 3133",
+                        "links": {
+                            "self": "https://api.agentboxcrm.com.au/staff/1stf0004?version=2"
+                        }
+                    }
+                },
+                {
+                    "webDisplay": true,
+                    "displayOrder": "2",
+                    "role": "Listing Agent",
+                    "staffMember": {
+                        "id": "1stf0012",
+                        "status": "Active",
+                        "officeId": "4",
+                        "officeName": "Black Rock Office",
+                        "externalMemberId": "",
+                        "firstName": "Nick",
+                        "lastName": "Jones",
+                        "role": "Director",
+                        "jobTitle": "Director/Auctioneer",
+                        "email": "nicholas.jones@chisholmgamon.com.au",
+                        "mobile": "0421 839 425",
+                        "phone": "03 9589 3133",
+                        "links": {
+                            "self": "https://api.agentboxcrm.com.au/staff/1stf0012?version=2"
+                        }
+                    }
+                },
+                {
+                    "webDisplay": true,
+                    "displayOrder": "1",
+                    "role": "Listing Agent",
+                    "staffMember": {
+                        "id": "1stf0004",
+                        "status": "Active",
+                        "officeId": "4",
+                        "officeName": "Black Rock Office",
+                        "externalMemberId": "",
+                        "firstName": "Amanda",
+                        "lastName": "Thomson",
+                        "role": "Sales Representative",
+                        "jobTitle": "Senior Sales Consultant",
+                        "email": "athomson@chisholmgamon.com.au",
+                        "mobile": "0418 266 326",
+                        "phone": "03 9589 3133",
+                        "links": {
+                            "self": "https://api.agentboxcrm.com.au/staff/1stf0004?version=2"
+                        }
+                    }
+                }
+            ],
+            "firstCreated": "2017-06-01T00:00:00+10:00",
+            "lastModified": "2018-04-16T17:28:47+10:00"
+        }
+    }
+}

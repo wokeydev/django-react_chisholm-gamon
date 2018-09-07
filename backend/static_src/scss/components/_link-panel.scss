@@ -1,0 +1,48 @@
+.link-panels {
+  @include xy-grid;
+  .link-panel {
+    @include xy-cell(full, $gutter-output: false, $gutters: 0);
+    background-color: #1E1B1C;
+
+     margin: 0;
+    text-align: center;
+    @include breakpoint(medium) {
+      @include xy-cell(4);
+      margin-bottom: 30px;
+    }
+    &:nth-child(1) {
+      @include breakpoint(medium) {
+        @include xy-cell(8);
+      }
+    }
+    &:nth-child(4) {
+      @include breakpoint(medium) {
+        @include xy-cell(8);
+      }
+    }
+    .link-panel-link {
+      background-size: cover;
+    background-repeat: no-repeat;
+       padding: 50px;
+      display: block;
+      opacity: 1;
+      transition: opacity .25s ease-in-out;
+      &:hover {
+        opacity: 0.7;
+      }
+      @include breakpoint(medium) {
+         padding: 130px 0 130px 0;
+      }
+    }
+    .link-panel-title {
+      text-align: center;
+      color: #FFF;
+      font-size: 28px;
+      font-weight: 600;
+      text-shadow: 0px 0px 25px rgba($black, 0.8);      
+    }
+    .link-panel-image {
+
+    }
+  }
+}

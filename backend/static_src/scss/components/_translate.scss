@@ -1,0 +1,19 @@
+a.translate {
+  color: $primary-color;
+  font-size: 1rem !important;
+  display: flex;
+  font-weight: 400 !important;
+  align-items: center;
+  line-height: 2.375rem;
+  img {
+    margin-right: 8px;
+    display: inline-block;
+  }
+  span {
+    color: $black;
+    @include transition(color 0.2s ease-in-out);
+  }
+  &:hover span {
+    color: $primary-color;
+  }
+}

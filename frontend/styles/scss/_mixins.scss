@@ -1,0 +1,18 @@
+@mixin verticalcenter($height, $left, $right) {
+    position: absolute;
+    top: 50%;
+    left: $left;
+    right: $right;
+    margin-top: -$height/2;
+}
+
+@mixin fontFace($family,$src,$weight: normal,$style: normal) {
+    @font-face {
+    font-family: $family;
+    //src: url('#{$src}.eot'); // IE9 compat
+    src: url('#{$src}.otf') format('truetype');
+    
+        font-style: $style;
+        font-weight: $weight;
+    }
+}

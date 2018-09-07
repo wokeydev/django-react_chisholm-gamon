@@ -1,0 +1,24 @@
+.quick-links {
+  margin-bottom: 1.875rem;
+    ul li {
+      background-color: $black;
+      a {
+        background-size: cover;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 50px;
+        color: $white;
+        font-size: 24px;
+        @include transition(opacity 0.2s ease-in-out);
+        text-shadow: 0 0 2rem rgba($black,0.75);
+      }
+      &:hover a {
+        opacity: 0.7;
+      }
+    }
+}

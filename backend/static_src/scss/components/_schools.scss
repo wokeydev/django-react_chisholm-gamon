@@ -1,0 +1,71 @@
+.listing-schools {
+  margin-bottom: 40px;
+  .listing-school {
+    border-bottom: 1px solid get-color(primary);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    .listing-school-title {
+      flex-basis: 100%;
+      @include breakpoint(large) {
+        flex-basis: 60%;
+      }
+    }
+    .listing-school-name {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 400;
+      @include breakpoint(large) {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+      }
+
+    }
+    .listing-school-distance {
+      font-size: 13px;
+      font-weight: 300;
+      font-style: italic;
+    }
+    .listing-school-suburb {
+      flex-grow: 1;
+      font-weight: 300;
+      @include breakpoint(large) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-basis: 100px;
+      }
+      @include breakpoint(xlarge) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-basis: 120px;
+      }
+    }
+    .listing-school-view-on-map {
+      font-weight: 300;
+      flex-grow: 1;
+      flex-basis: auto;
+      text-align: right;
+    }
+  }
+}
+.school-filters {
+  & > div {
+    border: 1px solid $white;
+    padding: 2px 5px;
+    @include breakpoint(medium) {
+      padding: 2px 10px;
+    }
+  }
+  .filter {
+    cursor: pointer;
+    &.active {
+      border-color: $primary-color;
+    }
+  }
+}

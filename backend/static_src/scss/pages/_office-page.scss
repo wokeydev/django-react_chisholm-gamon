@@ -1,0 +1,231 @@
+.radio-checkbox-wrapper {
+    & input {
+        display: none;
+    }
+    & .radio-checkbox {
+        position: relative;
+
+        &:after {
+            content: '\2610';
+            font-size: 1rem;
+        }
+    }
+    & input:checked ~ .radio-checkbox:after {
+        content: '\2611';
+    }
+}
+
+#office-page {
+
+    // banner
+    // ------
+    section.banner {
+        position: relative;
+
+        h1 {
+            position: absolute;
+            z-index: 3;
+            text-align: center;
+            pointer-events: none;
+            @include centerer(true, true);
+            line-height: 0.875;
+            small {
+                color: $white;
+            }
+        }
+
+        background-color: $medium-gray;
+        height: 60vh;
+        @include breakpoint(medium) {
+        height: 70vh;
+        }
+        @include breakpoint(large) {
+        height: 80vh;
+        }
+
+        #office-carousel {
+        background-color: $medium-gray;
+        }
+
+        #office-carousel,
+        #office-carousel .owl-item .item {
+        height: 60vh;
+        @include breakpoint(medium) {
+            height: 70vh;
+        }
+        @include breakpoint(large) {
+            height: 80vh;
+        }
+        }
+
+        #office-carousel .owl-item .item {
+        display: flex;
+        align-items: flex-end;
+        padding: 1rem;
+        }
+
+        .description {
+        h2 {
+            color: $white;
+            font-size: rem-calc(30);
+            margin-bottom: 0.25rem;
+            line-height: 1;
+            @include breakpoint(medium) {
+            font-size: rem-calc(40);
+            }
+            @include breakpoint(large) {
+            font-size: rem-calc(48);
+            }
+        }
+        a.button {
+            margin-bottom: 2px;
+            display: block;
+            width: 120px;
+            margin-left: 0;
+            @include breakpoint(medium) {
+            display: inline-block;
+            width: auto;
+            margin-left: 1rem;
+            }
+        }
+        }
+
+    }
+
+    .section-header {
+        font-size: 22px;
+    }
+    & #map {
+        height: 300px;
+    }
+    & .opening-hours li {
+        display: flex;
+        justify-content: flex-start;
+        strong {
+            min-width: 180px;
+        }
+    }
+    & #contact-us-btn {
+        margin: 20px auto;
+        width: 100%;
+        display: block;
+    }
+    & .agent-image {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+    }
+    & .agent-name-wrapper {
+        text-align: left;
+    }
+
+    .testimonials-section {
+        margin-top: 2rem;
+    
+        @include breakpoint(small only) {
+            margin-bottom: 2rem;
+        }
+        
+        @include breakpoint(medium up) {
+            margin-top: 4rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+    
+            @include breakpoint(medium) {
+                text-align: left;
+            }
+    
+            @include breakpoint(large) {
+                padding-bottom: 0px;
+                border-bottom: 1px solid $primary-color;
+            }
+        }
+    }
+    
+    #testimonials-officepage-carousel {
+        @include breakpoint(large) {
+            display: block !important;
+        }
+    
+        .testimonial {
+            @include breakpoint(large) {
+                width: 50%;
+                float: left;
+                margin-bottom: 2rem;
+            }
+    
+            @include breakpoint(1330px) {
+                width: 33%;
+    
+                .testimonial-image {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+    
+        }
+    }
+
+    @media screen and (max-width: 639px) {
+        #listing-section {
+            display: none
+        }
+        & #description-wrapper {
+            & #description-full,
+            & .ion-chevron-up {
+                display: none;
+            }
+        }
+        .mt-40 {
+            margin-top: 20px;
+        }
+        .pt-40 {
+            padding-top: 20px;
+        }
+    }
+
+    @media screen and (max-width: 1023px) {
+        #contact-form-cell {
+            order: 1;
+        }
+    }
+
+    @media screen and (min-width: 640px) {
+        .title-wrapper h1 {
+            line-height: 70px;
+        }
+        & .section-header {
+            border-bottom: 1px solid;
+            margin-top: -4px;
+        }
+        & #get-directions-wrapper {
+            text-align: right;
+
+            & .button {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+        & #description-wrapper {
+            & #description-partial,
+            & .toggle-btn {
+                display: none;
+            }
+        }
+        & .agent-name-wrapper {
+            text-align: center;
+        }
+        #listing-mobile-wrapper {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        & #contact-us-btn {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,629 @@
+.listing.listing-single {
+
+  .show-for-print-only {
+    display: none;
+  }
+
+  .listing-hero {
+    overflow: hidden;
+    position: relative;
+    .sold-badge {
+      position: absolute;
+      top: 40%;
+      left: calc(50% - 70px);
+      background-color: $primary_color;
+      color: $white;
+      transform: rotate(-15deg);
+      opacity: 0.7;
+    }
+    .listing-share {
+      display: none;
+      z-index: 21;
+      padding: 10px;
+      bottom: 54px;
+      left: -59px;
+      width: 157px;
+      background: #FFF;
+      @include breakpoint(medium) {
+        bottom: 51px;
+        left: -34px;
+      }
+      &.expanded {
+        display: block;
+        position: absolute;
+      }
+      &:after {
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(255, 255, 255, 0);
+        border-top-color: #FFFFFF;
+        border-width: 10px;
+        margin-left: -10px;
+      }
+      p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      a {
+        padding: 0;
+        background: none;
+        font-size: 36px;
+        line-height: 40px;
+        margin-right: 10px;
+        float: left;
+        color: get-color(primary);
+        &:after {
+          text-align: center;
+        }
+        &:last-of-type {
+          margin: 0;
+        }
+      }
+    }
+    .listing-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+      z-index: 20;
+      bottom: 100px;
+      @include breakpoint(large) {
+        bottom: 58px;
+      }
+    }
+    ul.tabs,
+    ul.links {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        flex: 0 0 auto;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        float: left;
+        display: block;
+        &.is-active {
+          > a {
+            font-weight: 500;
+            background: get-color(primary);
+          }
+        }
+        > a {
+          background: $black;
+          font-size: 17px;
+          line-height: 20px;
+          color: #FFF;
+          outline: none;
+          border: none;
+          padding: 10px;
+          display: block;
+          &:hover {
+            background: #524c4e;
+          }
+          &:focus {
+            outline: none;
+          }
+          i {
+            color: #FFF;
+            display: inline-block;
+            font-size: 22px;
+            @include breakpoint(large) {
+              font-size: 18px;
+            }
+          }
+          span {
+            margin-left: 4px;
+            display: none;
+            color: #FFF;
+            @include breakpoint(large) {
+              display: inline-block;
+            }
+          }
+        }
+      }
+      li.link-share {
+        position: relative;
+      }
+    }
+    .tabs-content {
+      height: calc(100% - 100px);
+      @include breakpoint(large) {
+        height: calc(100% - 58px);
+      }
+      position: relative;
+      .tabs-panel {
+        height: 100%;
+        position: relative;
+        padding: 0;
+      }
+    }
+    .orbit {
+      height: inherit;
+      background-color: $medium-gray;
+      .orbit-wrapper {
+        height: inherit;
+        .orbit-container {
+          height: inherit !important;
+          .orbit-slide {
+            height: inherit !important;
+            width: 100% !important;
+            .orbit-image {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+  .listing-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .listing-bar {
+    h1 {
+      font-size: 18px;
+      line-height: 32px;
+      font-weight: 300;
+      color: $black;
+      display: inline-block;
+      margin: 0;
+    }
+    .grid-container {
+      text-align: center;
+      background: #EAEAEA;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      @include breakpoint(large) {
+        text-align: left;
+      }
+      &.is-stuck {
+        box-shadow: 0 0 13px 3px rgba(0, 0, 0, .2);
+      }
+    }
+  }
+  .listing-address-lotnumber,
+  .listing-address-subNumber,
+  .listing-address-streetNumber,
+  .listing-address-street {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 300;
+    color: $black;
+    @include breakpoint(large) {
+      display: inline-block;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 300;
+      color: $black;
+    }
+  }
+  .listing-type {
+    margin-left: 0.5rem;
+    font-weight: 500;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    position: relative;
+    top: -3px;
+  }
+  .listing-video {
+    display: block;
+    left: 0px;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 56.25% = 16:9. set ratio */
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    .listing-video-wrap {
+      display: block;
+      height: 300%;
+      left: 0px;
+      overflow: hidden;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    iframe {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .listing-address-suburb {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 300;
+    color: get-color(primary);
+    @include breakpoint(large) {
+      display: inline-block;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 300;
+      color: get-color(primary);
+    }
+  }
+  .listing-button-contact-agent {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding: 10px 14px;
+    @include breakpoint(large) {
+      margin-bottom: 0;
+      margin-top: 0;
+      float: right;
+      padding: 10px 14px
+    }
+  }
+  .listing-button-sell-place {
+    display: none;
+    margin-bottom: 0;
+    @include breakpoint(large) {
+      display: block;
+      margin-bottom: 0;
+      margin-top: 0;
+      margin-right: 10px;
+      float: right;
+      padding: 10px 14px
+    }
+  }
+
+  .listing-content {
+    .listing-content-columns {
+      @include xy-grid();
+      @include xy-gutters($negative: true);
+      padding-top: 40px;
+    }
+    .listing-content-column-agents {
+      @include xy-cell();
+      order: 3;
+      @include breakpoint(medium) {
+        @include xy-cell(12);
+        order: 3;
+      }
+      @include breakpoint(large) {
+        @include xy-cell(2);
+        order: 1;
+      }
+    }
+    .listing-content-column-main {
+      @include xy-cell();
+      order: 2;
+      @include breakpoint(medium) {
+        @include xy-cell(7);
+        order: 1;
+      }
+      @include breakpoint(large) {
+        @include xy-cell(6);
+        order: 2;
+      }
+    }
+    .listing-content-column-details {
+      @include xy-cell();
+      order: 1;
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+        order: 2;
+      }
+      @include breakpoint(large) {
+        @include xy-cell(4);
+        order: 3;
+      }
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 300;
+    }
+  }
+  .listing-headline {
+    h2 {
+      font-size: 28px;
+    }
+  }
+  .listing-body {
+    margin-bottom: 30px;
+  }
+  .listing-features {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    li {
+      font-size: 18px;
+      padding-left: 10px;
+      text-indent: -10px;
+      font-weight: 300;
+      flex: 1 0 50%;
+    }
+    li::before {
+      content: "- ";
+      color: get-color(primary);
+    }
+  }
+  .listing-enquiry {
+    &.listing-enquiry-desktop {
+      display: none;
+      @include breakpoint(medium) {
+        display: block;
+      }
+    }
+    &.listing-enquiry-mobile {
+      display: block;
+      margin-top: 40px;
+      @include breakpoint(medium) {
+        display: none;
+      }
+    }
+    .sticky {
+      &.is-stuck {
+        margin-top: 200px !important;
+        @include breakpoint(large) {
+          margin-top: 170px !important;
+        }
+      }
+    }
+  }
+  .listing-social {
+    margin-top: 20px;
+    &.listing-social-mobile {
+      display: block;
+      margin-right: .9375rem;
+      margin-left: .9375rem;
+      @include breakpoint(medium) {
+        display: none;
+      }
+    }
+    &.listing-social-desktop {
+      display: none;
+      @include breakpoint(medium) {
+        display: block;
+      }
+    }
+    p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    a {
+      font-size: 26px;
+      margin-right: 10px;
+      color: get-color(primary);
+    }
+  }
+  .listing-rooms {
+    margin-bottom: 10px;
+    @include breakpoint(medium) {
+      margin-bottom: 30px;
+    }
+    .listing-room {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20px;
+      &:last-of-type {
+        margin: 0;
+      }
+      span {
+        margin-left: 4px;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 300;
+      }
+    }
+    .listing-rooms-bedrooms {
+      &:before {
+        vertical-align: middle;
+        content: "";
+        display: inline-block;
+        height: 23px;
+        width: 35px;
+        background-image: url("/static/img/icons/icon-bed.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+        color-adjust: exact !important; /*Firefox*/
+      }
+    }
+    .listing-rooms-bathrooms {
+      &:before {
+        vertical-align: middle;
+        content: "";
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        background-image: url("/static/img/icons/icon-bath.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+        color-adjust: exact !important; /*Firefox*/
+      }
+    }
+    .listing-rooms-carspaces {
+      &:before {
+        vertical-align: middle;
+        content: "";
+        display: inline-block;
+        width: 32px;
+        height: 24px;
+        background-image: url("/static/img/icons/icon-car.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+        color-adjust: exact !important; /*Firefox*/
+      }
+    }
+  }
+  .listing-price {
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: $black;
+    @include breakpoint(medium) {
+      margin-bottom: 30px;
+    }
+  }
+  .listing-inspections {
+    margin-bottom: 40px;
+    .listing-inspection {
+      margin-bottom: 10px;
+      .listing-inspection-icon {
+        background-color: get-color(primary);
+        float: left;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        margin-right: 10px;
+        i {
+          color: #FFF;
+          font-size: 14px;
+          line-height: 36px;
+        }
+      }
+      .listing-inspection-day {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+        display: block;
+        vertical-align: middle;
+        color: $black;
+      }
+      .listing-inspection-time {
+        font-size: 12px;
+        font-weight: 400;
+        display: block;
+        vertical-align: middle;
+        color: $black;
+        text-transform: lowercase;
+      }
+    }
+  }
+  .listing-agents {
+    &.sticky.is-stuck {
+      margin-top: 200px !important;
+      @include breakpoint(large) {
+        margin-top: 170px !important;
+      }
+    }
+    .listing-agent {
+      display: flex;
+      margin-bottom: 20px;
+      @include breakpoint(large) {
+        flex-direction: column;
+        justify-content: center;
+      }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      .listing-agent-left {
+        flex: 0 0 90px;
+        @include breakpoint(large) {
+          flex: 0 0 0;
+          text-align: center;
+        }
+      }
+      .listing-agent-right {
+        padding-left: 20px;
+        flex: 0 0 auto;
+        @include breakpoint(large) {
+          padding: 0;
+          flex: 0 0 0;
+          text-align: center;
+        }
+      }
+    }
+    .listing-agent-image {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      margin: 0 auto;
+      @include breakpoint(large) {
+        width: 150px;
+        padding-bottom: 150px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .listing-agent-title {
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 300;
+      color: get-color(primary);
+      @include breakpoint(medium) {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+    .listing-agent-phone {
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 400;
+      color: $black;
+    }
+  }
+  .listing-link {
+    margin-top: 20px;
+    .button {
+      margin: 0;
+      padding: 10px 10px;
+      font-size: 17px;
+      @include button-expand(true);
+    }
+  }
+
+  .listing-map {
+    position: relative;
+    #map {
+      margin-top: 40px;
+      height: 400px;
+    }
+    .listing-map-button {
+      width: 200px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      margin-left: -100px;
+      padding: 8px 15px;
+      box-shadow: 0 2px 9px 0px rgba(0, 0, 0, .3);
+    }
+  }
+}

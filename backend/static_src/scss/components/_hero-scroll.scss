@@ -1,0 +1,17 @@
+.hero-scroll {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  margin-right: -13px;
+  width: 30px;
+  animation: glowing 2000ms infinite;
+  z-index: 3;
+  &:hover {
+    animation: none;
+    opacity: 1;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,143 @@
+@mixin boxSizing($property) {
+  box-sizing: $property;
+  -ms-box-sizing: $property;
+  -moz-box-sizing: $property;
+  -webkit-box-sizing: $property;
+}
+@mixin radius($top_left: null, $top_right: null, $bottom_left: null, $bottom_right: null) {
+  border-top-left-radius: $top_left;
+  border-top-right-radius: $top_right;
+  border-bottom-left-radius: $bottom_left;
+  border-bottom-right-radius: $bottom_right;
+}
+
+@mixin animation($str...) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin pos-abs($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin vendor-prefix($name, $argument...) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+@mixin vendor-prefixes($name, $argument...) {
+  -webkit-#{$name}: -webkit-#{$argument};
+  -ms-#{$name}: -ms-#{$argument};
+  -moz-#{$name}: -moz-#{$argument};
+  -o-#{$name}: -o-#{$argument};
+  #{$name}: #{$argument};
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -ms-transform: $transform; // IE9 only
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin appearance($appearance) {
+  appearance: $appearance;
+  -moz-appearance: $appearance; /* Firefox */
+  -webkit-appearance: $appearance; /* Safari and Chrome */
+}
+
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin btn-shadow($color) {
+  box-shadow: 0 4px 10px -3px $color;
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+    position: absolute;
+    @if ($horizontal and $vertical) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } @else if ($horizontal) {
+        left: 50%;
+        transform: translate(-50%, 0);
+    } @else if ($vertical) {
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+@mixin arrow-after-before($left-color: null, $top-color: null, $right-color: null, $bottom-color: null, $left-border: null, $top-border: null, $right-border: null, $bottom-border: null) {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+
+    border-left-color: $left-color;
+    border-top-color: $top-color;
+    border-right-color: $right-color;
+    border-bottom-color: $bottom-color;
+
+    border-left-width: $left-border;
+    border-top-width: $top-border;
+    border-right-width: $right-border;
+    border-bottom-width: $bottom-border;
+}

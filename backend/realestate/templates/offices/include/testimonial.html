@@ -1,0 +1,19 @@
+{% load wagtailimages_tags %}
+{% load static %}
+<figure class="orbit-figure">
+    <div class="testimonial-image-wrapper {% if tes.video_url %} has-video {% endif %}">
+        {% if forloop.counter == 1 %}
+            {% image tes.image class="circle orbit-image" fill-160x160 %}
+        {% else %}
+            {% image tes.image fill-160x160 as tmp %}
+            <img data-echo="{{ tmp.url }}" alt="{{ tmp.alt }}" class="circle orbit-image"
+                 width="{{ tmp.width }}" height="{{ tmp.height }}">
+            <div class="overlay"></div>
+        {% endif %}
+        <div class="overlay"></div>
+        <button class="ion-play pointer" data-open="video-modal" data-src="{{ tes.video_url }}"></button>
+    </div>
+</figure>
+<div class="mt-10">{{ tes.name }}</div>
+<div class="italic">"{{ tes.headline }}"</div>
+<a href="#">Read more</a>

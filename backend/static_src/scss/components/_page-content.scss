@@ -1,0 +1,10 @@
+.page-content {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  &.no-img {
+    margin-top: 5rem;
+    @include breakpoint(medium) {
+      margin-top: 8rem;
+    }
+  }
+}

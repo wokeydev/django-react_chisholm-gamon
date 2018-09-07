@@ -1,0 +1,76 @@
+.strip {
+  width: 100%;
+  &.strip-featured {
+    background: #EAEAEA;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    @include breakpoint(medium) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+  &.strip-link-panels {
+    background: #FFF;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    @include breakpoint(small only) {
+      padding: 0;
+    }
+    @include breakpoint(medium) {
+      padding-top: 60px;
+      padding-bottom: 0px;
+    }
+    .grid-container {
+      @include breakpoint(small only) {
+        padding: 0;
+        margin: 0;
+        max-width: none;
+      }
+    }
+  }
+  &.strip-testimonials {
+    background: #FFF;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .strip-testimonials-heading {
+      text-align: center;
+      margin-bottom: 30px;
+      @include breakpoint(medium) {
+        margin-bottom: 20px;
+      }
+      img {
+        display: inline-block;
+        width: 36px;
+        @include breakpoint(small only) {
+          display: none;
+        }
+      }
+      h2 {
+        display: inline-block;
+        font-size: 36px;
+        @include breakpoint(small only) {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+  &.strip-blogshome {
+    background: #FFF;
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
+}
+
+body.header-reverse .strip-hero {
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    @include linear-gradient(rgba($black,0.7), rgba(white,0));
+  }
+}

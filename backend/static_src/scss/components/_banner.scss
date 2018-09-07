@@ -1,0 +1,100 @@
+// Banner
+// ------
+section.banner {
+  position: relative;
+  background-color: $medium-gray;
+
+  // title shadow
+  h1 {
+    text-shadow: 0px 0px 25px rgba($black, 0.8);
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    @include linear-gradient(rgba(black,0.5), rgba(white,0));
+  }
+}
+
+
+// orbit slider
+// ------------
+.orbit {
+
+  .orbit-slide {
+    height: rem-calc(613);
+    width: auto;
+  }
+
+  .orbit-controls {
+    .orbit-previous, .orbit-next {
+      background-color: $black;
+    }
+  }
+  .description {
+    @include flex;
+    @include flex-align(null, middle);
+    @include flex-wrap(wrap);
+  }
+}
+
+// owl slider
+// ----------
+section.banner .owl-carousel {
+  .owl-item .item {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .owl-nav {
+    margin: 0;
+    .owl-prev,
+    .owl-next {
+      background-color: $black;
+      border-radius: 0;
+      font-size: 0px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      margin: 0;
+      padding: .5rem;
+      @include transition(background-color 0.2s ease-in-out);
+      &:after {
+        display: inline-block;
+        font-family: Ionicons;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        text-rendering: auto;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        color: #FFFFFF;
+        font-size: 16px;
+        text-align: center;
+        content: "\f124";
+      }
+      &:hover {
+        background-color: $primary-color;
+      }
+      &.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+    .owl-next {
+      right: 0;
+      left: auto;
+      &:after {
+        content: "\f125";
+      }
+    }
+  }
+}

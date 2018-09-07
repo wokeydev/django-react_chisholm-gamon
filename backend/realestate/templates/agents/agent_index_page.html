@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags cms_tags static %}
+
+{% block content %}
+<div id="agent-index-page" class="mt-100 pt-10">
+
+    <form action="" id="search-form">
+        <div class="grid-container main-fields">
+            <div class="field-wrapper flex-grow-3">
+                <span>{{ form.agent_name.label }}</span>
+                {{ form.agent_name }}
+            </div>
+            <div class="show-for-small-only pointer text-center mb-15" id="advanced-options-toggle">
+                <span class="ion-chevron-down color-primary"></span>
+                show advanced options
+            </div>
+            <div class="flex-grow-2" id="advanced-options-wrapper">
+                <div class="field-wrapper flex-grow-1">
+                    <span>{{ form.office.label }}</span>
+                    <div class="select">
+                        {{ form.office }}
+                    </div>
+                </div>
+                <div class="field-wrapper flex-grow-2">
+                    <span>{{ form.position.label }}</span>
+                    <div class="select">
+                        {{ form.position }}
+                    </div>
+                </div>
+            </div>
+            <button class="button flex-grow-1" type="submit">Search</button>
+        </div>
+
+        <div class="grid-container mb-10 mt-20">
+            <div class="grid-x grid-margin-x">
+                <h1 class="h3 cell medium-7">
+                    <span class="color-black">{{ paginator.count }}</span>
+                    Real Estate Agents in <span class="location-housing">Macarthur</span>
+                </h1>
+                <div class="cell medium-5 sort-filter-wrapper">
+                    <span class="color-primary mr-5">Sort by</span>
+                    <div class="select">
+                        {{ form.sort_by }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x grid-margin-y agent-scroll" id="agent-list">
+        {% for agent in page.object_list %}
+            {% include "agents/include/agent_list_item.html" with agent=agent class="agent-scroll-add" %}
+        {% endfor %}
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    {% include 'includes/pagination.html' %}
+    <!-- Lazy Load Spinner -->
+    {% include 'includes/load_spinner.html' with text="Loading more professionals..." %}
+
+</div>
+
+<div class="reveal" id="contact-form-modal" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {% include "offices/include/contact_form.html" with form=self.contact_form %}
+</div>
+
+{% endblock content %}
+
+{% block body_js %}
+<script src="{% static 'js/infinite-scroll.pkgd.min.js' %}"></script>
+<script src="{% static 'js/agent_index.min.js' %}"></script>
+{% endblock body_js %}

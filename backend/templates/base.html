@@ -1,0 +1,174 @@
+{% load cms_tags seo_tags static wagtailcore_tags wagtailimages_tags %}
+<!doctype html>
+
+<html lang="en no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            {% if self.title_tag %}
+                {{ self.title_tag }}
+            {% elif self.seo_title %}
+                {{ self.seo_title }}
+            {% else %}
+                {{ self.title }} | {% get_setting "WAGTAIL_SITE_NAME" %}
+            {% endif %}
+        {% endblock %}
+    </title>
+
+    {# favicon #}
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#eb008b">
+    <meta name="msapplication-TileColor" content="#eb008b">
+    <meta name="theme-color" content="#1e1b1c">
+    <meta name="google-site-verification" content="Ql3ozm_-NOogFamiDGctVxP1XcruXvkd4PlY7C6qx3M" />
+
+    {% block meta %}{% seo_fields self %}{% endblock %}
+    {% block extra_meta %}
+        <!-- Add extra meta tags here -->
+    {% endblock %}
+
+    <!-- Google Tag Manager -->
+    {% if settings.cms.ThirdPartyApiSettings.google_tag_manager %}
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{settings.cms.ThirdPartyApiSettings.google_tag_manager}}');</script>
+    {% endif %}
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Analytics -->
+    {% if settings.cms.ThirdPartyApiSettings.google_analytics %}
+    <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', '{{settings.cms.ThirdPartyApiSettings.google_analytics}}', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    {% endif %}
+    <!-- End Google Analytics -->
+
+    <!-- Facebook Pixel -->
+    {% if settings.cms.ThirdPartyApiSettings.facebook_pixel_id %}
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '{{settings.cms.ThirdPartyApiSettings.facebook_pixel_id}}');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id={{settings.cms.ThirdPartyApiSettings.facebook_pixel_id}}&ev=PageView&noscript=1"
+        />
+    </noscript>
+    {% endif %}
+    <!-- End Facebook Pixel -->
+
+    
+
+    <!-- Organisation Structured Data -->
+    {% if settings.cms.SEOSettings.organisation_email %}
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "name": "{{settings.cms.SEOSettings.organisation_name}}",
+          "url": "{{self.request.site.root_url}}",
+          "logo": "{{ settings.cms.SEOSettings.logo.url }}",
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "{{settings.cms.SEOSettings.customer_contact_number}}",
+            "contactType": "{{settings.cms.SEOSettings.customer_contact_type}}"
+          }],
+        }
+    </script>
+    {% endif %}
+    <!-- /Organisation Structured Data -->
+
+    <link rel="stylesheet" href="{% static 'vendor/ionicons/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/select2/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.min.css' %}">
+    {% block extra_css %}
+        <!-- Add extra css here -->
+    {% endblock %}
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    {% block head_js %}<!-- Add extra JS to the head here -->{% endblock %}
+
+</head>
+
+<body id="body" data-resize="body" data-scroll="body" class="{% if self.title %}page-{{ self.title|slugify }}{% endif %} {% block bodyclass %}{% endblock %}" data-toggler="menu-is-visible">
+    <!-- Google Tag Manager (noscript) -->
+    {% if settings.cms.ThirdPartyApiSettings.google_tag_manager %}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{settings.cms.ThirdPartyApiSettings.google_tag_manager}}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    {% endif %}
+    <!-- End Google Tag Manager (noscript) -->
+
+    {# header #}
+    {% include "includes/header.html" %}
+
+    {# page content #}
+    {% block content %}<!-- Page content -->{% endblock %}
+
+    {# footer #}
+    {% include "includes/footer.html" %}
+
+    {# full menu #}
+    {% include "includes/full_menu.html" %}
+
+    <!-- google translate -->
+    <div class="reveal" id="translate-modal" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h2>Translate this website</h2>
+        <div id="google_translate_element"></div>
+    </div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+    <!-- / google translate -->
+
+    <script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'vendor/foundation.min.js' %}"></script>
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'js/echo.min.js' %}"></script>
+    <script src="{% static 'js/js.cookie.min.js' %}"></script>
+    <script>
+        $(document).foundation();
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'));
+                }
+            }
+        });
+    </script>
+    {% block body_before_js %}<!-- Add extra JS to the body here -->{% endblock %}
+    <script type="text/javascript" src="{% static 'js/app.min.js' %}"></script>
+    {% block body_js %}<!-- Add extra JS to the body here -->{% endblock %}
+</body>
+</html>

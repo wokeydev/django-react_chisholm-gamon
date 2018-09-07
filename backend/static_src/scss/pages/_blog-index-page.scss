@@ -1,0 +1,184 @@
+.page-blog {
+
+  // banner
+  // ------
+  section.banner {
+
+    background-color: $medium-gray;
+    height: 60vh;
+    @include breakpoint(medium) {
+      height: 70vh;
+    }
+    @include breakpoint(large) {
+      height: 80vh;
+    }
+
+    #blog-index-carousel {
+      background-color: $medium-gray;
+    }
+
+    #blog-index-carousel,
+    #blog-index-carousel .owl-item .item {
+      height: 60vh;
+      @include breakpoint(medium) {
+        height: 70vh;
+      }
+      @include breakpoint(large) {
+        height: 80vh;
+      }
+    }
+
+    #blog-index-carousel .owl-item .item {
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .description {
+      h2 {
+        color: $white;
+        font-size: rem-calc(30);
+        margin-bottom: 0.25rem;
+        line-height: 1;
+        @include breakpoint(medium) {
+          font-size: rem-calc(40);
+        }
+        @include breakpoint(large) {
+          font-size: rem-calc(48);
+        }
+      }
+      a.button {
+        margin-bottom: 2px;
+        display: block;
+        width: 120px;
+        margin-left: 0;
+        @include breakpoint(medium) {
+          display: inline-block;
+          width: auto;
+          margin-left: 1rem;
+        }
+      }
+      p {
+        font-weight: 500;
+        margin-bottom: 0;
+        color: $white;
+        display: none;
+        @include breakpoint(medium) {
+          display: block;
+        }
+        .author-divider {
+          display: inline-block;
+          margin: 0 0.5rem;
+        }
+        a {
+          color: $white;
+          display: inline-block;
+          @include transition(color 0.2s ease-in-out);
+          &:hover,
+          &:focus {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+  }
+
+  // blog type
+  // ---------
+  .blog-index-type {
+    margin-top: 8rem;
+    @include breakpoint(medium) {
+      margin-top: 10rem;
+    }
+    h1 {
+      font-weight: 900;
+      color: $black;
+      font-size: rem-calc(30);
+      @include breakpoint(medium) {
+        font-size: rem-calc(40);
+      }
+      @include breakpoint(medium) {
+        font-size: rem-calc(48);
+      }
+      span {
+        font-weight: 500;
+        font-style: italic;
+        color: $primary-color;
+      }
+    }
+  }
+
+  // blog search
+  // -----------
+  section.search-form {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    &.less-padding {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    // button
+    .button-size .button {
+      margin-bottom: 0;
+    }
+
+  }
+
+  // posts section
+  // -------------
+  section.blog-posts {
+
+    // cards
+    .card {
+      .card-divider h3 {
+        font-size: rem-calc(24);
+        color: $black;
+        margin-bottom: 0;
+        @include transition(color 0.2s ease-in-out);
+      }
+      .card-divider a:hover h3,
+      .card-divider a:focus h3 {
+        color: $primary-color;
+      }
+      a.card-image img {
+        @include transition(opacity 0.2s ease-in-out);
+      }
+      a.card-image:hover img,
+      a.card-image:focus img {
+        opacity: 0.8;
+      }
+      .card-section {
+        p {
+          margin: 0;
+          font-weight: 500;
+          a {
+            @include transition(color 0.2s ease-in-out);
+          }
+        }
+        .author-divider {
+          display: inline-block;
+          margin: 0 0.5rem;
+        }
+        a.button {
+          margin: 0;
+        }
+      }
+    }
+
+  }
+
+  // loading spinner
+  // ---------------
+  .load-spinner {
+    opacity: 0;
+    @include transition(opacity 0.2s ease-in-out);
+  }
+  &.ajax-loading .load-spinner {
+    opacity: 1;
+    max-height: unset;
+  }
+
+}

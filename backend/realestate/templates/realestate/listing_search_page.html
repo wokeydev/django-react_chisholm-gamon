@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="" method="GET">
+        {{form.errors}}
+        {{form.as_p}}
+        <input type="submit" value="Search">
+    </form>
+    Listings:
+    {{listings.object_list}}
+{% endblock %}

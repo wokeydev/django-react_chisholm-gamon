@@ -1,0 +1,55 @@
+{% load wagtailcore_tags %}
+{% if page %}
+    {% if page.canonical %}
+        <link rel="canonical" href="{{page.canonical}}">
+    {% elif page.get_site.root_url %}
+        <link rel="canonical" href="{{ page.get_site.root_url }}{% pageurl page %}">
+    {% endif %}
+    {% if page.meta_title %}
+        <meta name="title" content="{{page.meta_title}}" />
+    {% endif %}
+    {% if page.meta_description %}
+        <meta name="description" content="{{page.meta_description}}" />
+    {% endif %}
+    {% if page.meta_keywords %}
+        <meta name="keywords" content="{{page.meta_keywords}}" />
+    {% endif %}
+    {% if page.og_title %}
+        <meta property="og:title" content="{{page.og_title}}"/>
+    {% endif %}
+    {% if page.og_type %}
+        <meta property="og:type" content="{{page.og_type}}"/>
+    {% endif %}
+    {% if page.og_url %}
+        <meta property="og:url" content="{{page.og_url}}"/>
+    {% endif %}
+    {% if page.og_img %}
+        <meta property="og:img" content="{{page.og_img}}"/>
+    {% endif %}
+    {% if page.og_description %}
+        <meta property="og:description" content="{{page.og_description}}"/>
+    {% endif %}
+    {% if page.twitter_card %}
+        <meta property="twitter:card" content="{{page.twitter_card}}"/>
+    {% endif %}
+    {% if page.twitter_site %}
+        <meta property="twitter:site" content="{{page.twitter_site}}"/>
+    {% endif %}
+    {% if page.twitter_title %}
+        <meta property="twitter:title" content="{{page.twitter_title}}"/>
+    {% endif %}
+    {% if page.twitter_description %}
+        <meta property="twitter:site" content="{{page.twitter_description}}"/>
+    {% endif %}
+    {% if page.twitter_creator %}
+        <meta property="twitter:creator" content="{{page.twitter_creator}}"/>
+    {% endif %}
+    {% if page.twitter_image %}
+        <meta property="twitter:image" content="{{page.twitter_image}}"/>
+    {% endif %}
+    {% if page.structured_data %}
+        <script type="application/ld+json">
+        {{page.get_structured_data_json}}
+        </script>
+    {% endif %}
+{% endif %}

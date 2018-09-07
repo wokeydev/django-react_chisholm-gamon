@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+{% autoescape off %}
+    {{self.iframe_code|safe}}
+{% endautoescape %}
+{% endblock %}

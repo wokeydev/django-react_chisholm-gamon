@@ -1,0 +1,323 @@
+// import sportscard variables
+@import "variables";
+@import "mixins";
+
+// import bootstrap variables
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/utilities";
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/code";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/alert";
+@import "node_modules/bootstrap/scss/list-group";
+@import "node_modules/bootstrap/scss/tables";
+@import "node_modules/bootstrap/scss/tooltip";
+// sportscard imports
+// @import "variables";
+@include fontFace("Museo", '/static/font/useo-500-webfont', bold, italic);
+@include fontFace("Museo -300", '/static/font/Mundo Sans Std Regular', bold, italic);
+// html body
+html, body {
+  background: $greyLight;
+  font-family: "open-sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  color: $black;
+}
+body {
+  margin-top: 4.25rem;
+  width: 100%; 
+  margin:0 auto !important;
+}
+
+// global shadow class
+.shadow {
+  box-shadow: 0 0 20px rgba($black,0.16);
+}
+
+// bold font weight
+b, strong {
+  font-weight: 700;
+}
+
+// fix non coloured a links
+a:not([href]):not([tabindex]), a:not([href]):not([tabindex]) {
+  color: $white;
+  cursor: pointer;
+  &:hover, &:focus {
+    color: $green;
+  }
+}
+#header_container
+{
+    // height: 129px;
+    background-color:white;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         3px 3px 3px 3px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.nav-link{
+  color: #221e1f !important;
+  //font-family: "Museo -700";
+  font-size: 30px;
+   /* Text style for "Sell" */
+  letter-spacing: -0.87px !important;
+  // /* Text style for "., ., ., ." */
+  // color: #ff8124 !important;
+  // letter-spacing: -1.09px !important;
+}
+.nav-link span{
+  color: #ff8124 !important;
+  letter-spacing: -1.09px !important;
+}
+.description-wrapper{
+  p{
+    width: 1182px;
+    height: 1152px;
+    color: #221e1f;
+    font-family: "Museo Sans 300";
+    font-size: 32px;
+    /* Text style for "Cras quis" */
+    letter-spacing: -0.93px;
+  }
+  h1{
+    color: #ff8124;
+    font-family: "Museo 500";
+    font-size: 48px;
+    text-transform: uppercase;
+    /* Text style for "PAGE TITLE" */
+    letter-spacing: -1.39px;
+  }
+  h2{
+    color: #221e1f;
+    font-family: "Museo Sans 300";
+    font-size: 36px;
+    /* Text style for "Page Subti" */
+    letter-spacing: -1.04px;
+  }
+}
+.footer-style{
+  background-color: #221e1f;
+  color: white;
+}
+.footerlink-style{
+  background-color: #ff8124;
+}
+.yellowInput{
+  border-radius: unset !important;
+  border-style: solid !important;
+  border-color: #ff8124 !important;
+  background-color: #221e1f !important;
+  padding:30px 0 30px 20px !important;
+  color: white !important;
+  font-size: 24px !important;
+}
+.yellowButton{
+  width: 230px;
+  height: 65px;
+  box-shadow: 2px 2px 6px rgba(34, 30, 31, 0.4);
+  background-color: #ff8124 !important;
+  border-style: none !important;
+  border-radius: 0 !important;
+  font-family: "Museo -500" !important;
+  font-size: 30px !important;
+}
+.footerLogo{
+  margin-left:-450px;
+}
+.office-container {
+  margin-top:20px;
+  .office-item {
+    img.arrow {
+      @include verticalcenter(15px, auto, $grid-gutter-width/2);
+    }
+  }
+  .propertyImg{
+    background: url("/static/images/property.png") no-repeat; 
+    .arrows {
+      @include verticalcenter(47px, auto, auto);
+      width: 96%;
+    }
+  }
+}
+.browser-container{
+  .footer-title{
+    font-size:36px;
+    color:#ff8124;
+    // font-family:'Museo -500';
+    letter-spacing: -0.69px;
+    text-align:left !important;
+    padding-left:10px;
+  }
+  .office-container{
+    .title{
+      font-size:48px;
+      color:#ff8124;
+      //font-family:'Museo -700';
+      letter-spacing:1.39px;
+      text-align: center;
+      // marginTop:40px;
+      // marginBottom:20px;
+    }    
+    .des_title{
+      font-size:36px;
+      color:#ff8124;
+      font-family:'Museo -500';
+      letter-spacing: -1.04px;
+    }
+    .view_title{
+      font-size:24px;
+      color:#ff8124;
+      font-family:'Museo Sans 500';
+      letter-spacing: -0.69px;
+      text-align:right !important;
+      padding-right:50px;
+    }
+    .des_txt{
+      font-size:24px;
+      color:#221e1f;
+      font-family:'Museo Sans 300';
+      letter-spacing: -1.25px;
+    }
+    .des_border{
+      border-left-style:solid;
+      border-left-width:5px;
+      border-left-color:#ff8124;
+    }
+    .property-container .col-sm-5, .property-container .col-5{
+        text-align:center;
+    }
+    .property-container .propertyIcon-container{
+
+    }
+    .prop_address{
+      font-size:20px;
+      color:#221e1f;
+      font-family:'Museo sans-serif';
+      letter-spacing: -0.81px;
+    }
+    .prop_value{
+      font-size:2rem;
+      color:#ff8124;
+      font-family:'Museo -700';
+      letter-spacing: -0.58px;
+    }
+  }
+}
+.mobile-container{
+  .footerLogo{
+    margin-left:0px !important;
+  }
+  .yellowButton{
+    width:130px;
+    height: 52px;
+    font-size: 20px !important;
+  }
+  .rounded-circle img{
+    margin-left:-2px !important;
+  }
+  .rounded-circle h5{
+    font-size:15px !important;
+  }
+  .footerlink-style
+  {
+    margin:0 auto;
+    .col-12 img{
+      width:100%;
+    }
+    .col-12 a{
+      width:55px;
+    }
+    .col-12{
+      margin-top:30px;
+      margin-left:-15px !important;
+    }
+  } 
+  $font-size: 26px;
+  $line-height: 1.4;
+  $lines-to-show: 5;
+  .office-container{
+    .property-title{
+      font-size:33px;
+      color:#ff8124;
+      font-family:Museo -700;
+      letter-spacing: -1.04px;
+      margin-top:40px;
+      margin-bottom:20px;
+      text-align:center;
+    }
+    h1,h2,h3,h4,h5{
+      text-align:center;
+    }
+    .prop-title{
+      font-size:28px;
+      color: #ff8124;;
+      font-family:'Museo -500';
+      letter-spacing: -0.81px;
+    }
+    .prop-address{
+      font-size:20px;
+      color:#221e1f;
+      font-family:'Museo sans-serif';
+      letter-spacing: -0.81px;
+    }
+    .prop-value{
+      font-size:30px;
+      color:#ff8124;
+      font-family:'Museo -700';
+      letter-spacing: -0.58px;
+    }
+    
+  }
+  .mobile-title{
+    font-size:36px;
+    color:#ff8124;
+    font-family:'Museo -500';
+    letter-spacing: -1.39px;
+    text-align: center;
+  }
+  .mobile-subtitle{
+    font-size:24px;
+    color:#221e1f;
+    font-family:'Museo -500';
+    letter-spacing: -1.04px;
+    text-align: center;
+  }
+  .description-wrapper-mobile{
+      p{
+        font-size: 24px;
+        /* Text style for "Cras quis" */
+        letter-spacing: -0.69px;
+
+        display: block; /* Fallback for non-webkit */
+        display: -webkit-box;
+        max-width: 400px;
+        height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+        margin: 0 auto;
+        font-size: $font-size;
+        line-height: $line-height;
+        -webkit-line-clamp: $lines-to-show;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      h1{ 
+        font-size: 36px;
+        /* Text style for "PAGE TITLE" */
+        letter-spacing: -1.04px;
+      }
+      h2{
+        font-size: 30px;
+        /* Text style for "Page Subti" */
+        letter-spacing: -0.87px;
+      }
+    }
+}

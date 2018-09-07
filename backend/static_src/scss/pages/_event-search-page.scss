@@ -1,0 +1,68 @@
+#event-search-page {
+  #listing-search-form {
+    @include breakpoint(medium only) {
+      .query {
+        flex-grow: 1;
+        margin-right: 10px;
+      }
+    }
+    @include breakpoint(large) {
+      .query {
+        flex-basis: 38%;
+
+        & > div {
+          width: 80%;
+        }
+      }
+    }
+    .bedrooms, .bathrooms, .min-price, .max-price {
+      display: none;
+    }
+    .listing-search-form-fields {
+      justify-content: flex-start;
+    }
+    .date-from-to {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 1rem;
+      .date-from,
+      .date-to {
+        width: 47%;
+      }
+      @include breakpoint(large) {
+        width: unset;
+        margin-top: 0;
+        margin-left: 10px;
+        .date-to {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .listing-search-title-bar {
+    flex-direction: column;
+    align-items: center;
+
+    @include breakpoint(large) {
+      flex-direction: row;
+    }
+  }
+  .listing-block {
+    .listing-item {
+      padding-bottom: 12px;
+
+      .listing-info {
+        position: unset;
+      }
+    }
+    .listing-image-wrapper {
+      height: 200px;
+
+      @include breakpoint(large) {
+        height: 280px;
+      }
+    }
+  }
+}

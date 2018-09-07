@@ -1,0 +1,221 @@
+.search-home {
+  .search {
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+    @include breakpoint(medium) {
+      padding: 0;
+      margin: 0 auto;
+    }
+    form {
+      input {
+        height: 56px;
+        border: none;
+        appearance: none;
+        margin: 0;
+        padding: 20px;
+      }
+      select {
+        height: 56px;
+        border: none;
+        appearance: none;
+        margin: 0;
+        cursor: pointer;
+        padding: 10px 20px 10px 20px;
+        border-radius: 0;
+        background-color: #FFF;
+        color: #666;
+        background-image: none;
+        background-repeat: no-repeat;
+      }
+      label {
+        color: #FFF;
+        font-weight: 500;
+      }
+      select, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]) {
+        font-size: rem-calc(14);
+        padding-top: 0;
+        padding-bottom: 0;
+        height: rem-calc(52);
+        line-height: rem-calc(52);
+      }
+    }
+
+    // Search Basic Fields
+    .search-basic {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      @include breakpoint(medium) {
+
+      }
+      .search-field {
+        position: relative;
+        flex: 0 0 100%;
+        margin-bottom: 10px;
+        @include breakpoint(medium) {
+          flex: 1 0 0;
+        }
+      }
+      .search-listing-type {
+        @include breakpoint(medium) {
+          margin-right: 10px;
+        }
+        &:after {
+          font-family: Ionicons;
+          color: #FFFFFF;
+          font-size: 16px;
+          content: "\f123";
+          display: inline-block;
+          position: absolute;
+          right: 20px;
+          top: 17px;
+          pointer-events: none;
+        }
+        select[name="listing_type"] {
+          background: $black;
+          border: none;
+          color: #FFF;
+        }
+      }
+      .search-query {
+        @include breakpoint(medium) {
+          flex: 3 0 0;
+          margin-right: 10px;
+        }
+        input[name="query"] {
+          border: none;
+        }
+      }
+      .search-submit {
+        button[type="submit"] {
+          margin-bottom: 0;
+          border: none;
+          height: 3.25rem;
+          line-height: 3.25rem;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    // Search Advanced Trigger
+    .search-advanced-trigger {
+      text-align: center;
+      a {
+        color: $white;
+        font-size: 14px;
+        font-weight: 700;
+        text-shadow: 0px 0px 10px rgba($black, 0.8);
+        position: relative;
+        padding-bottom: 0.25rem;
+        &:after {
+          content: ' ';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background-color: $primary-color;
+        }
+        i {
+          @include transition(transform 0.2s ease-in);
+          display: inline-block;
+        }
+        &.expanded {
+          i {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    // Search Advanced Fields
+    .search-advanced {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: max-height 0.2s ease-in, opacity 0.2s ease-in;
+      &.expanded {
+        max-height: 300px;
+        opacity: 1;
+        visibility: visible;
+      }
+      .search-field {
+        position: relative;
+        flex: 0 0 50%;
+        padding: 5px;
+        @include breakpoint(medium) {
+          flex: 0 0 33%;
+        }
+        @include breakpoint(large) {
+          flex: 1 0 0;
+        }
+        &:after {
+          font-family: Ionicons;
+          color: get-color(primary);
+          font-size: 16px;
+          content: "\f123";
+          display: inline-block;
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+          pointer-events: none;
+        }
+        select,
+        input {
+          width: 100%;
+        }
+      }
+    }
+    // handle buy/rent fields
+    .search-advanced[data-listing-type="sale"],
+    .search-advanced[data-listing-type="both"],
+    .search-advanced[data-listing-type="commercial"],
+    .search-advanced[data-listing-type="sold"] {
+      #id_rent__gte,
+      #id_rent__lte {
+        display: none;
+      }
+    }
+    .search-advanced[data-listing-type="lease"] {
+      #id_price__gte,
+      #id_price__lte {
+        display: none;
+      }
+    }
+  }
+  #search-library {
+    display: none;
+  }
+  
+}
+
+.homepage {
+  // overide select2 for query field
+  .select2-container--default .select2-selection--multiple {
+    border: 0 !important;
+    height: unset !important;
+    min-height: 3.25rem !important;
+  }
+  .select2-container--default .select2-search--inline .select2-search__field {
+    height: 3.25rem!important;
+    min-height: 3.25rem!important;
+  }
+  .select2-results__group {
+    color: $primary-color;
+    text-transform: capitalize;
+  }
+  .select2-dropdown {
+    border: 0;
+    border-radius: 0;
+  }
+  .select2-results__message {
+    background: $light-gray;
+    font-style: italic;
+  }
+}

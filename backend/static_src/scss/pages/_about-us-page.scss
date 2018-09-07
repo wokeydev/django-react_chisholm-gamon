@@ -1,0 +1,201 @@
+#about-us-page {
+  #top-img {
+    height: 200px;
+    position: relative;
+
+    @include breakpoint(medium) {
+      height: 380px;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      @include linear-gradient(rgba(black,0.5), rgba(white,0));
+    }
+  }
+  & > section {
+    margin-top: 3.4rem;
+  }
+  h1 {
+    font-size: 2rem;
+    @include breakpoint(medium) {
+      font-size: 3rem;
+    }
+  }
+  .gallery {
+    @include breakpoint(small only) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .orbit-container {
+      height: auto;
+      width: 100%;
+    }
+    .orbit-slide {
+      height: auto;
+
+      @include breakpoint(medium) {
+        display: inline-block;
+        width: calc(35% - 2rem);
+
+        &:nth-of-type(1) {
+          float: left;
+          width: 65%;
+          margin-right: 2rem;
+        }
+        &:nth-of-type(2) {
+          margin-bottom: 2.1rem;
+        }
+      }
+    }
+    .orbit .orbit-slide {
+      width: 100%;
+    }
+  }
+  .gbb {
+    padding: 0 25px;
+
+    @include breakpoint(large) {
+      font-size: 1.4rem;
+    }
+    .title {
+      font-size: 1.4em;
+
+      div {
+        display: inline;
+        @include breakpoint(medium) {
+          display: block;
+        }
+      }
+    }
+    .ion-android-checkmark-circle {
+      @include breakpoint(small only) {
+        margin-right: 5px;
+      }
+      @include breakpoint(large) {
+        font-size: 2em;
+      }
+    }
+  }
+  .testimonial {
+    text-align: center;
+
+    .img {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+    }
+
+    @include breakpoint(medium) {
+      text-align: left;
+    }
+    @include breakpoint(large) {
+      font-size: 1.4rem;
+    }
+    img {
+      @include breakpoint(small only) {
+        display: block;
+        margin: auto;
+        width: 60%;
+      }
+    }
+  }
+  .positions {
+    background-color: $light-gray;
+    padding: 2rem 1rem;
+  }
+  .position-item {
+    background: $white;
+    padding: 1rem;
+    position: relative;
+
+    h4 {
+      color: $black;
+    }
+    .show-position {
+      margin-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+      text-transform: uppercase;
+      color: $primary-color;
+      font-weight: bold;
+    }
+    .triangle-down {
+      display: none;
+      position: absolute;
+      border-bottom: 0;
+      bottom: -1.1rem;
+      left: calc(50% - 0.6rem);
+      border-top: 1.2rem solid $primary-color;
+      border-left: 1.2rem solid transparent;
+      border-right: 1.2rem solid transparent;
+      @include breakpoint(medium) {
+        bottom: -1.5rem;
+        left: calc(50% - 0.75rem);
+        border-top: 1.6rem solid $primary-color;
+        border-left: 1.6rem solid transparent;
+        border-right: 1.6rem solid transparent;
+      }
+    }
+    &.active {
+      background: $primary-color;
+      * {
+        color: $white;
+      }
+      .triangle-down {
+        display: block;
+      }
+    }
+    .position-data {
+      display: none;
+    }
+  }
+  .position-data {
+    display: none;
+    border: none;
+    border-bottom: 5px solid $primary-color;
+    .email-btn {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .close-button {
+      top: 0;
+      right: 0.5rem;
+    }
+    @include breakpoint(small only) {
+      .panel-right {
+        order: -1;
+      }
+      .btn-contact {
+        width: 100%;
+
+        &.black {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+[id$='-position-form'] {
+  input[type="text"],
+  input[type="email"] {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: auto;
+    border-color: $black;
+  }
+  textarea {
+    border-color: $black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .close-button {
+    font-size: 3rem;
+    top: 0;
+  }
+}

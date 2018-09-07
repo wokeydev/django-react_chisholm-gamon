@@ -1,0 +1,14 @@
+psycopg2
+wagtail==2.2.1
+wagtailmenus>=2.7.1
+django-anymail==1.2
+elasticsearch==5.*
+wagtailfontawesome==1.1.*
+arrow==0.12.*
+wagtailgeowidget==4.0.*
+geocoder==1.38.*
+wagtail-condensedinlinepanel==0.5
+customizable-django-profiler
+django-redis==4.9.0
+requests==2.18.4
+coreapi==2.3.3

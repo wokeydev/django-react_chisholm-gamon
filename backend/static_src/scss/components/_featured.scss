@@ -1,0 +1,417 @@
+.featured {
+  @include xy-grid;
+  margin-right: -.9375rem;
+  margin-left: -.9375rem;
+  .featured-left {
+    @include xy-cell();
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #1E1B1C;
+    @include breakpoint(medium) {
+      @include xy-cell(4);
+      padding: 15px;
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: 400;
+      color: #fff;
+      @include breakpoint(medium) {
+        font-size: 34px;
+      }
+    }
+    .button {
+      margin-top: 7px;
+      margin-bottom: 0;
+      padding: 10px 10px;
+      font-size: 17px;
+      @include button-expand(true);
+      @include breakpoint(large) {
+        @include button-expand(false);
+        margin: 0;
+        margin-top: 20px;
+      }
+    }
+    ul.tabs {
+      background: none;
+      border: none;
+      li.tabs-title {
+        &.is-active {
+          a {
+            border-left: 4px solid get-color(primary);
+            font-weight: 500;
+            background: #393536;
+          }
+        }
+        a {
+          background: none;
+          padding: 13px;
+          font-size: 17px;
+          border-bottom: 1px solid #FFF;
+          color: #FFF;
+          outline: none;
+          &:hover {
+            background: #524c4e;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .featured-right {
+    @include xy-cell();
+    background: #FFF;
+    min-height: auto;
+    @include breakpoint(medium) {
+      @include xy-cell(8);
+    }
+    .tabs-content {
+      padding: 0;
+      border: none;
+      height: 100%;
+      .tabs-panel {
+        padding: 0;
+        height: 100%;
+        &.is-active {
+
+        }
+      }
+    }
+    .orbit {
+      .orbit-controls {
+        .orbit-next {
+          cursor: pointer;
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+          @include breakpoint(medium down) {
+            background-color: get-color(primary);
+            right: -10px;
+          }
+          @include breakpoint(medium only) {
+            top: 160px;
+          }
+        }
+        .orbit-previous {
+          cursor: pointer;
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+          @include breakpoint(medium down) {
+            background-color: get-color(primary);
+            left: -10px;
+          }
+          @include breakpoint(medium only) {
+            top: 160px;
+          }
+        }
+      }
+      .orbit-container {
+        height: auto;
+        .orbit-slide {
+          height: auto;
+        }
+      }
+    }
+  }
+  .featured-no-listing {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .featured-no-listing-count {
+      max-width: 50%;
+      flex: 1 0 0;
+      font-size: 24px;
+    }
+  }
+}
+
+.feature {
+  @include xy-grid;
+  .feature-left {
+    overflow: hidden;
+    @include xy-cell(full, $gutter-output: false, $gutters: 0);
+    @include breakpoint(medium) {
+      @include xy-cell(full, $gutter-output: false, $gutters: 0);
+    }
+    @include breakpoint(large) {
+      @include xy-cell(7, $gutter-output: false, $gutters: 0);
+    }
+    @include breakpoint(xlarge) {
+      @include xy-cell(8, $gutter-output: false, $gutters: 0);
+    }
+  }
+  .feature-right {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include xy-cell(full, $gutter-output: false, $gutters: 0);
+    @include breakpoint(medium) {
+      @include xy-cell(full, $gutter-output: false, $gutters: 0);
+    }
+    @include breakpoint(large) {
+      @include xy-cell(5, $gutter-output: false, $gutters: 0);
+    }
+    @include breakpoint(xlarge) {
+      @include xy-cell(4, $gutter-output: false, $gutters: 0);
+    }
+    .feature-right-row-first {
+      padding: 20px;
+    }
+    .feature-right-row-second {
+    }
+  }
+  .feature-image {
+    background: #CCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    img {
+      flex-shrink: 0;
+      min-width: 100%;
+      min-height: 100%;
+      max-width: unset;
+      height: unset;
+    }
+    @include breakpoint(small only) {
+      height: 200px;
+      img {
+        max-width: 100%;
+      }
+    }
+    @include breakpoint(medium only) {
+      height: 300px;
+      overflow: hidden;
+    }
+  }
+  .feature-address-street {
+    font-size: 18px;
+    font-weight: 300;
+    color: $black;
+  }
+  .feature-address-suburb {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 400;
+    color: get-color(primary);
+    margin-bottom: 20px;
+    @include breakpoint(medium) {
+      margin-bottom: 30px;
+    }
+  }
+  .feature-rooms {
+    margin-bottom: 10px;
+    @include breakpoint(medium) {
+      margin-bottom: 30px;
+    }
+    .feature-room {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20px;
+      &:last-of-type {
+        margin: 0;
+      }
+      span {
+        margin-left: 4px;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 300;
+      }
+    }
+    .feature-rooms-bedrooms {
+      &:before {
+        vertical-align: middle;
+        content: "";
+        display: inline-block;
+        height: 23px;
+        width: 35px;
+        background-image: url("/static/img/icons/icon-bed.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+    }
+    .feature-rooms-bathrooms {
+      &:before {
+        vertical-align: middle;
+        content: "";
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        background-image: url("/static/img/icons/icon-bath.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+    }
+    .feature-rooms-carspaces {
+      &:before {
+        vertical-align: middle;
+        content: "";
+        display: inline-block;
+        width: 32px;
+        height: 24px;
+        background-image: url("/static/img/icons/icon-car.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+    }
+
+  }
+  .feature-price {
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: $black;
+    @include breakpoint(medium) {
+      margin-bottom: 30px;
+    }
+  }
+  .feature-inspections {
+    margin-bottom: 20px;
+    @include breakpoint(small only) {
+      display: none;
+    }
+    .feature-inspection {
+      &:nth-child(n+2) {
+        display: none;
+      }
+      .feature-inspection-icon {
+        background-color: get-color(primary);
+        float: left;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        margin-right: 10px;
+        i {
+          color: #FFF;
+          font-size: 14px;
+          line-height: 36px;
+        }
+      }
+      .feature-inspection-day {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+        display: block;
+        vertical-align: middle;
+        color: $black;
+      }
+      .feature-inspection-time {
+        font-size: 12px;
+        font-weight: 400;
+        display: block;
+        vertical-align: middle;
+        color: $black;
+        text-transform: lowercase;
+      }
+    }
+  }
+  .feature-agents {
+    .feature-agent {
+      display: flex;
+      .feature-agent-left {
+        flex: 0 0 70px;
+        @include breakpoint(small only) {
+          flex: 0 0 40px;
+        }
+      }
+      .feature-agent-right {
+        padding-left: 10px;
+        flex: 0 0 auto;
+      }
+    }
+    .feature-agent-image {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .feature-agent-title {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 300;
+      color: get-color(primary);
+      @include breakpoint(medium) {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+    .feature-agent-phone {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 300;
+      color: $black;
+      font-style: italic;
+    }
+  }
+  .feature-link {
+    margin-top: 20px;
+    .button {
+      margin: 0;
+      padding: 10px 10px;
+      font-size: 17px;
+      @include button-expand(true);
+    }
+  }
+}
+
+/*
+ * Prevent flickering of Foundation tabs and Orbit slider.
+ *
+ * - The orbit slider is quite janky and looks broken while the page is loading.
+ * - Slides inside tabs (other than the first tab) do not get their height calculated, so they appear empty.
+ * - By default the content of the slide sets the height of the tab. When moving between slides that have different heights it feels really unstable.
+ *
+ */
+
+// Code below intended to address issues above and make Orbit smooth.
+// This code is separate in case it causes problems with Orbit.
+
+.featured {
+  @include breakpoint(large) {
+    overflow: hidden;
+    max-height: 460px;
+  }
+  @include breakpoint(medium only) {
+    max-height: none;
+    min-height: 600px;
+  }
+  .featured-right {
+    .orbit-container {
+      // Fixes slider having no height inside tabs that are hidden initially
+      height: auto !important;
+      @include breakpoint(large) {
+        max-height: 460px;
+        height: auto !important;
+      }
+      .orbit-slide {
+      }
+    }
+    .feature {
+      .feature-left {
+        @include breakpoint(large) {
+          height: 460px;
+        }
+      }
+    }
+  }
+}

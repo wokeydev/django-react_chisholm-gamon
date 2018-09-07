@@ -1,0 +1,77 @@
+@media print {
+
+  #event-search-page {
+
+    // margin
+    &.page-content,
+    &.page-content.no-img {
+      margin-top: 0 !important;
+    }
+
+    // listing search
+    #listing-search-form {
+      display: none !important;
+    }
+
+    // print buttons
+    .print-btn {
+      display: none !important;
+    }
+
+
+    // listing block
+    .listing-block {
+      margin-top: 3rem;
+
+      // day header
+      .day-header {
+        display: none !important;
+      }
+
+      // listing item
+      .listing-item {
+        overflow: visible !important;
+        margin-top: 2rem !important;
+        border: solid 1px $black;
+        width: calc(50% - 1.875rem) !important;
+
+        &:not(.print) {
+          display: none !important;
+        }
+
+        // image
+        .listing-image-wrapper {
+          height: auto !important;
+          overflow: visible;
+          .inspection-time {
+            top: -2rem;
+          }
+          .sold-badge {
+            color: $white !important;
+            opacity: 1;
+          }
+        }
+
+        // button
+        .listing-button-wrap {
+          display: none !important;
+        }
+
+        // bottom pink bar
+        .listing-info:after {
+          display: none !important;
+        }
+
+      }
+    }
+
+    // hide some things
+    .myvip,
+    .pagination,
+    .load-spinner {
+      display: none !important;
+    }
+
+  }
+
+} // end @media print

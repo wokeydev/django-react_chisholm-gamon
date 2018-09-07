@@ -1,0 +1,196 @@
+@media print {
+  .show-for-print-only {
+    display: unset !important;
+  }
+  .head-wrap {
+    position: relative;
+  }
+  section#full-menu {
+    display: none !important;
+  }
+  a[href]:after { // reset wierd links thing
+    content: '';
+  }
+  header.sitehead {
+    .sitehead__logo {
+      display: none;
+    }
+    nav {
+      display: none;
+    }
+    .print-logo {
+      display: block;
+      width: 150px;
+      height: auto;
+    }
+  }
+  footer {
+    display: none !important;
+  }
+  .listing.listing-single {
+    div {
+    }
+    .listing-hero {
+      width: 100% !important;
+      height: 400px !important;
+      overflow: visible;
+      .sold-badge {
+        display: none !important;
+      }
+      .tabs-content {
+        height: 100% !important;
+      }
+      .orbit-controls {
+        display: none !important;
+      }
+    }
+    .listing-menu {
+      display: none !important;
+    }
+    .listing-bar {
+      position: absolute;
+      top: -70px;
+      right: 0;
+    }
+    .listing-button-contact-agent {
+      display: none !important;
+    }
+    .listing-button-sell-place {
+      display: none !important;
+    }
+    .listing-content {
+      .listing-content-columns {
+        @include xy-grid();
+        @include xy-gutters($negative: true);
+        padding-top: 15px;
+      }
+      .listing-content-column-agents {
+        @include xy-cell(12);
+        order: 1;
+        height: auto !important;
+      }
+      .listing-content-column-main {
+        @include xy-cell(8);
+        order: 2;
+      }
+      .listing-content-column-details {
+        @include xy-cell(4);
+        order: 3;
+      }
+    }
+
+    .listing-address-lotnumber,
+    .listing-address-street,
+    .listing-address-streetNumber,
+    .listing-address-subNumber,
+    .listing-address-suburb {
+      font-weight: 400 !important;
+    }
+    .listing-address-suburb {
+      color: $primary-color !important;
+    }
+
+    .listing-headline {
+      h2 {
+        color: $primary-color !important;
+        font-weight: 400 !important;
+        font-size: 18px;
+      }
+    }
+
+    .listing-agents {
+      display: flex;
+      margin-bottom: 20px;
+      flex-direction: row;
+      justify-content: flex-start;
+      text-align: left;
+      .listing-agent {
+        flex: 1 0 260px;
+        display: flex;
+        margin-bottom: 20px;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-right: 20px;
+        .listing-agent-left {
+          flex: 0 0 100px;
+        }
+        .listing-agent-right {
+          padding-left: 20px;
+          flex: 0 0 auto;
+          text-align: left;
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .listing-agent-title {
+          color: $primary-color !important;
+          font-weight: 400 !important;
+          margin-bottom: 0.5rem !important;
+        }
+        .listing-agent-image {
+          width: 100px;
+          height: 0;
+          padding-bottom: 100px;
+          margin: 0 auto;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        .listing-agent-email {
+          display: none !important;
+        }
+      }
+    }
+    .listing-rooms .listing-room span {
+      font-weight: 400 !important;
+    }
+    .listing-price {
+      font-weight: 400 !important;
+    }
+    .listing-enquiry {
+      display: none !important;
+    }
+    .listing-social {
+      display: none !important;
+    }
+    .listing-map {
+      #map {
+        height: 400px;
+      }
+    }
+    .listing-schools {
+      h2 {
+        color: $primary-color !important;
+        font-weight: 400 !important;
+      }
+      .listing-school {
+        &:nth-of-type(1n+4) {
+          display: none !important;
+        }
+        .listing-school-name,
+        .listing-school-distance,
+        .listing-school-suburb {
+          font-weight: 400 !important;
+        }
+        .listing-school-view-on-map {
+          display: none;
+        }
+      }
+    }
+    .listing-map {
+      .listing-map-button {
+        display: none;
+      }
+    }
+    .sticky {
+      // Dont stick on Print
+      position: relative !important;
+      z-index: 0 !important;
+      margin-top: 0 !important;
+      top: 0 !important;
+    }
+  }
+}
+

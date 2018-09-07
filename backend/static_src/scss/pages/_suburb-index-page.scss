@@ -1,0 +1,193 @@
+.suburb-index-page {
+
+  // banner
+  // ------
+  section.banner {
+    position: relative;
+
+    background-color: $medium-gray;
+    height: 60vh;
+    @include breakpoint(medium) {
+      height: 70vh;
+    }
+    @include breakpoint(large) {
+      height: 80vh;
+    }
+
+    // reset title
+    h1 {
+      position: unset;
+      z-index: unset;
+      pointer-events: unset;
+      top: unset;
+      left: unset;
+      transform: unset;
+    }
+
+    #suburb-index-carousel {
+      background-color: $medium-gray;
+    }
+
+    #suburb-index-carousel,
+    #suburb-index-carousel .owl-item .item {
+      height: 60vh;
+      @include breakpoint(medium) {
+        height: 70vh;
+      }
+      @include breakpoint(large) {
+        height: 80vh;
+      }
+    }
+
+    #suburb-index-carousel .owl-item .item {
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    #suburb-index-carousel.owl-carousel .owl-nav .owl-next,
+    #suburb-index-carousel.owl-carousel .owl-nav .owl-prev {
+      top: 70% !important;
+      @include breakpoint(medium) {
+        top: 50% !important;
+      }
+    }
+
+    .description {
+      h2 {
+        color: $white;
+        font-size: rem-calc(30);
+        margin-bottom: 0.25rem;
+        line-height: 1;
+        @include breakpoint(medium) {
+          font-size: rem-calc(40);
+        }
+        @include breakpoint(large) {
+          font-size: rem-calc(48);
+        }
+      }
+      a.button {
+        margin-bottom: 2px;
+        display: block;
+        width: 120px;
+        margin-left: 0;
+        @include breakpoint(medium) {
+          display: inline-block;
+          width: auto;
+          margin-left: 1rem;
+        }
+      }
+    }
+
+  }
+
+  // search form
+  .suburb-index-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    width: 100%;
+    @include breakpoint(medium) {
+      width: 75%;
+    }
+    @include breakpoint(large) {
+      width: 50%;
+    }
+    .form-search {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      p {
+        flex-grow: 1;
+        width: 84%;
+      }
+      button {
+        margin-bottom: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        width: 84%;
+      }
+      @include breakpoint(medium) {
+        flex-direction: row;
+        p {
+          width: auto;
+          margin-bottom: 0;
+        }
+        button {
+          width: auto;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+
+  // suburb list
+  .suburb-list {
+    opacity: 0;
+    @include transition(opacity 0.2s ease-in-out);
+    &.has-suburbs {
+      opacity: 1;
+    }
+
+    .suburb-list-index {
+      display: none;
+      margin-top: 2rem;
+      &.has-suburbs {
+        display: block;
+      }
+    }
+
+    a.suburb-list-suburb {
+      color: $black;
+      display: block;
+      @include transition(color 0.2s ease-in-out);
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+  }
+
+}
+
+
+// select2 fixes
+// -------------
+// remove search input margin
+.select2-container--default .select2-search--inline .select2-search__field {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+// fix spacing issue
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+  display: block !important;
+  width: calc(100% - 10px) !important;
+}
+// style input
+.select2-container--default .select2-selection--multiple {
+  border-radius: 0 !important;
+  min-height: 56px !important;
+  height: 56px !important;
+  border: solid 1px $primary-color !important;
+}
+.select2-container--default .select2-search--inline .select2-search__field {
+  min-height: 56px !important;
+  height: 56px !important;
+}
+// style pill
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  border: none !important;
+  background-color: $primary-color !important;
+  color: $white !important;
+  font-weight: 700 !important;
+  margin-top: 14px !important;
+}
+// style remove button
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  color: $white !important;
+  margin-right: 6px !important;
+}

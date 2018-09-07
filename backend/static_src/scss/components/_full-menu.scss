@@ -1,0 +1,86 @@
+section#full-menu {
+  opacity: 0;
+  @include transition(top 0.4s ease-in-out,opacity 0.2s ease-in-out);
+  background-color: $white;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  top: -110%;
+  left: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-top: rem-calc(90);
+  padding-bottom: rem-calc(50);
+  @include breakpoint(large) {
+    padding-top: rem-calc(150);
+  }
+
+  &.is-visible {
+    top: 0;
+    opacity: 1;
+  }
+
+  // general links
+  a {
+    text-align: center;
+    @include breakpoint(large) {
+      text-align: left;
+    }
+  }
+
+  // level 1 (nav) links
+  a.full-menu-nav-item {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    @include breakpoint(xlarge) {
+      font-size: 1.875rem;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+  // level 2 (subnav) links
+  a.full-menu-subnav-item {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    color: $black;
+    padding: 0;
+    @include breakpoint(xlarge) {
+      font-size: 1.125rem;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  // active menu item styling
+  .menu .active > a {
+    background-color: transparent;
+    font-weight: bold;
+    font-style: italic;
+    pointer-events: none;
+    &.full-menu-nav-item {
+      color: $primary-color;
+    }
+    &.full-menu-subnav-item {
+      color: $black;
+    }
+  }
+
+  // google translate (mobile)
+  a.translate {
+    display: block;
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+}
+
+// stop body scroll when full menu is open
+body.menu-is-visible {
+  overflow: hidden;
+}

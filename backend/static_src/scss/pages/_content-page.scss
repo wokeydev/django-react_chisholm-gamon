@@ -1,0 +1,20 @@
+// content page
+// ------------
+.content-page {
+
+  h1 {
+    color: $black;
+    font-weight: bold;
+    font-size: rem-calc(24);
+    margin-bottom: rem-calc(30);
+    @include breakpoint(medium) {
+      font-size: rem-calc(36);
+      margin-bottom: rem-calc(36);
+    }
+    @include breakpoint(medium) {
+      font-size: rem-calc(48);
+      margin-bottom: rem-calc(40);
+    }
+  }
+
+}

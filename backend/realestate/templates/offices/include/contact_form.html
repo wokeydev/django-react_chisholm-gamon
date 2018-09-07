@@ -1,0 +1,42 @@
+<form action="{% if action %}{{ action }}{% endif %}" method="post"
+      class="contact-form {% if class %}{{ class }}{% endif %}"
+      id="contact-form">
+    <p class="font-xl color-primary mt-10">Get in touch <span class="with-person-housing"></span></p>
+    {% csrf_token %}
+    <p>
+        <input type="text" name="{{ form.name.html_name }}" required
+            placeholder="{{ form.name.label }}"
+            {% if form.name.value %} value="{{ form.name.value }}" {% endif %}>
+        {{ form.name.errors }}
+    </p>
+    <p>
+        <input type="text" name="{{ form.email_address.html_name }}" required
+            placeholder="{{ form.email_address.label }}"
+            {% if form.email_address.value %} value="{{ form.email_address.value }}" {% endif %}>
+        {{ form.email_address.errors }}
+    </p>
+    <p>
+        <input type="text" name="{{ form.phone_number.html_name }}"
+            placeholder="{{ form.phone_number.label }}"
+            {% if form.phone_number.value %} value="{{ form.phone_number.value }}" {% endif %}>
+        {{ form.phone_number.errors }}
+    </p>
+    <p>
+        <textarea name="{{ form.message.html_name }}"  cols="30" rows="5"
+                placeholder="{{ form.message.label }}"
+                {% if form.message.value %} value="{{ form.message.value }}" {% endif %}></textarea>
+    </p>
+    <p>
+        {% comment %} <span class="color-primary">{{ form.help.label_tag }}</span> {% endcomment %}
+        <label class="color-primary font-md">What can <span class="person-housing">we</span> help with?</label>
+        {% for radio in form.help %}
+            <label class="radio-checkbox-wrapper">
+                {{ radio.tag }}
+                <span class="radio-checkbox"></span>
+                {{ radio.choice_label }}
+            </label>
+        {% endfor %}
+        {{ form.help.errors }}
+    </p>
+    <button class="button py-10 px-30" type="submit">Submit</button>
+</form>

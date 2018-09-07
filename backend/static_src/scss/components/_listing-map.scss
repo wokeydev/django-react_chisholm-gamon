@@ -1,0 +1,90 @@
+// listing map item
+.listing-item.map-item {
+    position: relative;
+    width: 460px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    // image
+    .listing-image-wrapper {
+        flex-basis: 35%;
+        height: 110px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-repeat: no-repeat;
+    }
+
+    // info
+    .listing-info {
+        flex-basis: 65%;
+        padding: .75rem;
+    }
+
+    // address
+    .listing-address {
+        font-size: rem-calc(16);
+        display: block;
+        margin-bottom: 0.125rem;
+    }
+
+    // price
+    .listing-options .listing-price {
+        display: block;
+        margin: 0.75rem 0;
+        font-size: rem-calc(14);
+    }
+
+    // icons
+    .listing-options .listing-icons {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        span:first-of-type {
+            margin-left: 0;
+        }
+        span {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 0.5rem;
+        }
+        img {
+            height: 16px;
+            margin-right: 0.25rem;
+        }
+    }
+
+    // card link
+    & > a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+}  
+
+// google maps overides
+.gm-style-iw {
+    width: 460px !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    border-radius: 0;
+    & > div:first-child {
+        display: block !important;
+    }
+}
+.iw-parent {
+    width: 460px !important;
+    height: 110px !important;
+}
+.iw-border {
+    top: 110px !important;
+    & > div > div {
+        background-color: $primary-color !important;
+    }
+}
